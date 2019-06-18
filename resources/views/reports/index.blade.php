@@ -5,14 +5,14 @@
     <div class="reportsIndex">
         <h3 id="numberOfNavi">新着の論文 3件</h3>
         @if(count($reports) > 0)
-            <ul>
+            <ul style="padding:0;">
                 @foreach($reports as $report)
                     <li>
                         <div class="reports card">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card-body">
-                                        <img src="images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+                                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card-body">
-                        <img src="images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card-body">
-                        <img src="images/カブトムシ.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -70,7 +70,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card-body">
-                        <img src="images/青空.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
                     </div>
                 </div>
                 <div class="col-lg-8">

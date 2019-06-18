@@ -2,18 +2,24 @@
 @section('content')
     <div class="reports card">
         <div class="card-body text-center">
-            <img src="images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+            <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
         </div>
         <div class="reportDetail card-body">
-            <h2>昆虫の研究</h2>
+            <h2>{{ $report->title }}</h2>
             <h4>表示名</h4>
             <p>〇年〇月〇日 投稿</p>
-            <a class="btn btn-primary" href="write-reports.html">編集</a>
+            <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
+            <!-- <a class="btn btn-danger" href="/reports/{{ $report->id }}/edit">削除</a> -->
+            <form action="/reports/{{ $report->id }}" method="post" class="inline-block">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" class="btn btn-danger" value="削除">
+            </form>
         </div>
         <div class="contents card-body">
             <p>要約が表示されます。</p>
             <div class="text-center">
-                <img src="images/化石.jpg" alt="contentsImage" class="img-thumbnail">
+                <img src="{{ URL::to('/') }}/images/化石.jpg" alt="contentsImage" class="img-thumbnail">
             </div>
             <p>本文が表示されます。<br>例<br>１）カブトムシの実験<br>２）チョウチョウの実験<br>３）カマキリの実験<br>本文が表示されます。</p>
         </div>

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* 全体のデザイン */
+body {
+    margin:0;
+}
+
+ul {
+    list-style:none;
+}
+
+.reportsIndex #numberOfNavi {
+    text-align:center;
+    margin:30px auto;
+}
+
+.reports {
+    margin-bottom:20px;
+}
+
+.reportDetail {
+    padding-left:20px;
+}
