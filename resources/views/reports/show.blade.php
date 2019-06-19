@@ -9,8 +9,7 @@
             <h4>表示名</h4>
             <p>〇年〇月〇日 投稿</p>
             <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
-            <!-- <a class="btn btn-danger" href="/reports/{{ $report->id }}/edit">削除</a> -->
-            <form action="/reports/{{ $report->id }}" method="post" class="inline-block">
+            <form action="/reports/{{ $report->id }}" method="post" class="mt-2">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="delete">
                 <input type="submit" class="btn btn-danger" value="削除">
@@ -21,7 +20,7 @@
             <div class="text-center">
                 <img src="{{ URL::to('/') }}/images/化石.jpg" alt="contentsImage" class="img-thumbnail">
             </div>
-            <p>本文が表示されます。<br>例<br>１）カブトムシの実験<br>２）チョウチョウの実験<br>３）カマキリの実験<br>本文が表示されます。</p>
+            <p>{{ $report->contents_text }}</p>
         </div>
         <div class="comments card-body">
             <h3>コメント</h3>

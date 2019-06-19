@@ -16,8 +16,8 @@
             <textarea name="reportsAbstract" rows="8" cols="80" placeholder="（例）こんちゅうのふしぎについてしらべてみました。&#13;&#10;※要約に書いた内容はトップページに表示されます。" class="form-control"></textarea>
         </div>
         <div class="form-group">
-            <label for="reportsContents">本文</label>
-            <textarea name="reportsContents" rows="30" cols="80" placeholder="（例）こんちゅうの食べ物のスキ・キライの実験をしました。&#13;&#10;じつはこんちゅうのスキな食べ物は〇〇で、キライな食べ物は〇〇ということがわかりました。" class="form-control"></textarea>
+            <label for="contents_text">本文</label>
+            <textarea name="contents_text" rows="30" cols="80" placeholder="{{ $report->contents_text }}" class="form-control"></textarea>
         </div>
         <div class="form-group">
             <label for="reportsImage">画像</label><br>
