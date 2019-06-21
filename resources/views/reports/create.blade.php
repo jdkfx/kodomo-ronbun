@@ -2,26 +2,33 @@
 @section('content')
     <form action="/reports" method="post">
         {{ csrf_field() }}
+        @include('commons.error_messages')
+
         <div class="form-group">
             <label for="reportsThumbnail">タイトル画像</label><br>
             <input type="file" name="reportsThumbnail" id="reportsThumbnail">
         </div>
+
         <div class="form-group">
             <label for="title">タイトル</label>
-            <input type="text" name="title" id="title" value="{{ old('title') }}" placeholder="（例）こんちゅうのふしぎ" class="form-control">
+            <input type="text" name="title" id="title" value="テスト論文のタイトル" placeholder="（例）こんちゅうのふしぎ" class="form-control">
         </div>
+
         <div class="form-group">
             <label for="reportsAbstract">要約</label>
             <textarea name="reportsAbstract" rows="8" cols="80" placeholder="（例）こんちゅうのふしぎについてしらべてみました。&#13;&#10;※要約に書いた内容はトップページに表示されます。" class="form-control"></textarea>
         </div>
+
         <div class="form-group">
             <label for="contents_text">本文</label>
-            <textarea name="contents_text" rows="30" cols="80" placeholder="（例）こんちゅうの食べ物のスキ・キライの実験をしました。&#13;&#10;じつはこんちゅうのスキな食べ物は〇〇で、キライな食べ物は〇〇ということがわかりました。" class="form-control"></textarea>
+            <textarea name="contents_text" rows="30" cols="80" placeholder="（例）こんちゅうの食べ物のスキ・キライの実験をしました。&#13;&#10;じつはこんちゅうのスキな食べ物は〇〇で、キライな食べ物は〇〇ということがわかりました。" class="form-control">テスト論文の本文</textarea>
         </div>
+
         <div class="form-group">
             <label for="reportsImage">画像</label><br>
             <input type="file" name="reportsImage" id="reportsImage">
         </div>
+
         <div class="form-row">
             <div class="form-group  col-lg-6">
                 <label for="reportsCategory">カテゴリー</label>
@@ -42,7 +49,6 @@
                 </select>
             </div>
         </div>
-        @include('commons.error_messages')
         <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
     </form>
 @endsection

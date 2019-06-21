@@ -13,7 +13,7 @@ class CreateReportTextTable extends Migration
      */
     public function up()
     {
-        Schema::create('report_text', function (Blueprint $table) {
+        Schema::create('report_texts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('report_id')->unsigned()->index();
             $table->text('contents_text');
@@ -30,6 +30,6 @@ class CreateReportTextTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('report_text');
+        Schema::dropIfExists('report_texts');
     }
 }

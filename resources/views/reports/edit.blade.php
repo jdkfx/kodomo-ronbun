@@ -2,27 +2,35 @@
 @section('content')
     <form action="/reports/{{ $report->id }}" method="post">
         {{ csrf_field() }}
+        @include('commons.error_messages')
+
         <input type="hidden" name="_method" value="put">
+
         <div class="form-group">
             <label for="reportsThumbnail">タイトル画像</label><br>
             <input type="file" name="reportsThumbnail" id="reportsThumbnail">
         </div>
+
         <div class="form-group">
             <label for="title">タイトル</label>
             <input type="text" name="title" id="title" value="{{ $report->title }}" class="form-control">
         </div>
+
         <div class="form-group">
             <label for="reportsAbstract">要約</label>
             <textarea name="reportsAbstract" rows="8" cols="80" placeholder="（例）こんちゅうのふしぎについてしらべてみました。&#13;&#10;※要約に書いた内容はトップページに表示されます。" class="form-control"></textarea>
         </div>
+
         <div class="form-group">
             <label for="contents_text">本文</label>
-            <textarea name="contents_text" rows="30" cols="80" placeholder="{{ $report->contents_text }}" class="form-control"></textarea>
+            <textarea name="contents_text" rows="30" cols="80" class="form-control">{!! $report_text->contents_text !!}</textarea>
         </div>
+
         <div class="form-group">
             <label for="reportsImage">画像</label><br>
             <input type="file" name="reportsImage" id="reportsImage">
         </div>
+
         <div class="form-row">
             <div class="form-group  col-lg-6">
                 <label for="reportsCategory">カテゴリー</label>

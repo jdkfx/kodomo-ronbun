@@ -29,59 +29,5 @@
                 @endforeach
             </ul>
         @endif
-
-        <div class="reports card">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card-body">
-                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h3><a href="reports.html">化石の研究</a></h3>
-                        <h4><a href="users.html">表示名</a></h4>
-                        <h4>〇年〇月〇日 投稿</h4>
-                        <p>要約が表示されます</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="reports card">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card-body">
-                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h3><a href="reports.html">昆虫の研究</a></h3>
-                        <h4><a href="users.html">表示名</a></h4>
-                        <h4>〇年〇月〇日 投稿</h4>
-                        <p>要約が表示されます</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="reports card">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card-body">
-                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h3><a href="reports.html">天気の研究</a></h3>
-                        <h4><a href="users.html">表示名</a></h4>
-                        <h4>〇年〇月〇日 投稿</h4>
-                        <p>要約が表示されます</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
