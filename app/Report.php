@@ -11,4 +11,8 @@ class Report extends Model
     public function report_text(){
         return $this->hasOne('App\ReportText');
     }
+
+    public function report_abstract(){
+        return $this->hasOne('App\ReportAbstract');
+    }
 }

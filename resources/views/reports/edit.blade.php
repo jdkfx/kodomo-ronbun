@@ -17,8 +17,8 @@
         </div>
 
         <div class="form-group">
-            <label for="reportsAbstract">要約</label>
-            <textarea name="reportsAbstract" rows="8" cols="80" placeholder="（例）こんちゅうのふしぎについてしらべてみました。&#13;&#10;※要約に書いた内容はトップページに表示されます。" class="form-control"></textarea>
+            <label for="contents_abstract">要約</label>
+            <textarea name="contents_abstract" rows="8" cols="80" class="form-control">{!! $report_text->contents_abstract !!}</textarea>
         </div>
 
         <div class="form-group">

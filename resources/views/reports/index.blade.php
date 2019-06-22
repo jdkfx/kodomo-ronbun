@@ -20,7 +20,10 @@
                                         <h3><a href="/reports/{{ $report->id }}">{{ $report->title }}</a></h3>
                                         <h4><a href="#">表示名</a></h4>
                                         <h4>〇年〇月〇日 投稿</h4>
-                                        <p>要約が表示されます</p>
+                                        <?php
+                                        $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
+                                         ?>
+                                        <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
                                     </div>
                                 </div>
                             </div>

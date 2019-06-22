@@ -16,7 +16,7 @@
             </form>
         </div>
         <div class="contents card-body">
-            <p>要約が表示されます。</p>
+            <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
             <div class="text-center">
                 <img src="{{ URL::to('/') }}/images/化石.jpg" alt="contentsImage" class="img-thumbnail">
             </div>
