@@ -39,6 +39,7 @@ class ReportsController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'thumbnail' => 'required|image',
+            'category_id' => 'required',
             'contents_text' => 'required',
             'contents_abstract' => 'required',
         ]);
@@ -55,7 +56,7 @@ class ReportsController extends Controller
 
         $report->report_detail()->create([
             'thumbnail' => $path,
-            // 'category_id' => $request->category_id,
+            'category_id' => $request->category_id,
         ]);
 
         $report->report_text()->create([
@@ -104,6 +105,7 @@ class ReportsController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'thumbnail' => 'required|image',
+            'category_id' =>'required',
             'contents_text' => 'required',
             'contents_abstract' => 'required',
         ]);
@@ -118,8 +120,8 @@ class ReportsController extends Controller
 
         $path = $request->thumbnail->store('public/thumbnail');
         $report_detail->thumbnail = $path;
+        $report_detail->category_id = $request->category_id;
         $report_detail->save();
-        // 'category_id' => $request->category_id,
 
         $report_text->contents_text = $request->contents_text;
         $report_text->save();

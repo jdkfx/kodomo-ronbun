@@ -16,12 +16,11 @@ class CreateReportDetailTable extends Migration
         Schema::create('report_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('report_id')->unsigned()->index();
-            // $table->integer('category_id')->unsined()->index();
+            $table->integer('category_id');
             $table->string('thumbnail');
             $table->timestamps();
 
             $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade'); // 外部キー参照
-            // $table->foreign('category_id')->references('id')->on('categories'); // 外部キー参照
         });
     }
 
