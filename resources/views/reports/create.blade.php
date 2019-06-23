@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <form action="/reports" method="post">
+    <form action="/reports" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         @include('commons.error_messages')
 
         <div class="form-group">
-            <label for="reportsThumbnail">タイトル画像</label><br>
-            <input type="file" name="reportsThumbnail" id="reportsThumbnail">
+            <label for="thumbnail">タイトル画像</label><br>
+            <input type="file" files="true" name="thumbnail" id="thumbnail">
         </div>
 
         <div class="form-group">

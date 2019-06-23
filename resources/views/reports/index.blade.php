@@ -12,7 +12,10 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card-body">
-                                        <img src="{{ URL::to('/') }}/images/化石.jpg" class="img-thumbnail" alt="thumbnailOfReports">
+                                        <?php
+                                        $report_detail = App\ReportDetail::where('report_id',$report->id)->first();
+                                         ?>
+                                        <img src="{{ Storage::url($report_detail->thumbnail) }}" class="img-thumbnail" alt="thumbnailOfReports">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">

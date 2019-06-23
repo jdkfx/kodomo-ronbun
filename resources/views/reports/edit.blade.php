@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <form action="/reports/{{ $report->id }}" method="post">
+    <form action="/reports/{{ $report->id }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         @include('commons.error_messages')
 
         <input type="hidden" name="_method" value="put">
 
         <div class="form-group">
-            <label for="reportsThumbnail">タイトル画像</label><br>
-            <input type="file" name="reportsThumbnail" id="reportsThumbnail">
+            <label for="thumbnail">タイトル画像</label><br>
+            <input type="file" files="true" name="thumbnail" value="{{ Storage::url($report_detail->thumbnail) }}" id="thumbnail">
         </div>
 
         <div class="form-group">
@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label for="contents_abstract">要約</label>
-            <textarea name="contents_abstract" rows="8" cols="80" class="form-control">{!! $report_text->contents_abstract !!}</textarea>
+            <textarea name="contents_abstract" rows="8" cols="80" class="form-control">{!! $report_abstract->contents_abstract !!}</textarea>
         </div>
 
         <div class="form-group">
