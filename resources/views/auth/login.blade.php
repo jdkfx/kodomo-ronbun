@@ -3,7 +3,7 @@
 
     <h1 style="text-align:center;">ログイン</h1>
     <h3 style="text-align:center;">新規登録は<a href="/register">こちら</a></h3>
-    <form style="width:60%;margin:0 auto;">
+    <form method="post" style="width:60%;margin:0 auto;">
         {{ csrf_field() }}
         <div class="form-group{{ $errors->has('account_name') ? ' has-error' : '' }}">
             <label for="account_name">アカウント名</label><br>
@@ -12,7 +12,7 @@
                 <span class="help-block">
                     <strong>{{ $errors->first('account_name') }}</strong>
                 </span>
-           @endif
+            @endif
         </div>
         <div class="form-group">
             <label for="password">パスワード</label><br>

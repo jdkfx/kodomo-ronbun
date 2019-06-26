@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -39,5 +40,14 @@ class LoginController extends Controller
 
     public function username(){
         return 'account_name';
+    }
+
+    protected function attemptLogin(Request $request){
+        $username = $request->input($this->username());
+        $password = $request->input('password');
+
+        $credentials = ['account_name' => $username,'password' => $password];
+
+        return $this->guard()->attempt($credentials,$request->filled('remember'));
     }
 }

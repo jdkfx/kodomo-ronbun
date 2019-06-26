@@ -11,9 +11,15 @@
                     <button class="btn btn-success my-2 my-sm-0" type="submit">検索</button>
                 </form>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-2" href="/login">ログイン</a>
-                    </li>
+                    @if(Auth::check())
+                        <li>
+                            <a class="btn btn-danger ml-lg-2" href="/logout">ログアウト</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="btn btn-primary ml-lg-2" href="/login">ログイン</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
