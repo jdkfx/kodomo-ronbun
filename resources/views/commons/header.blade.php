@@ -13,7 +13,23 @@
                 <ul class="navbar-nav">
                     @if(Auth::check())
                         <li>
-                            <a class="btn btn-danger ml-lg-2" href="/logout">ログアウト</a>
+                            <?php
+                            $user = \Auth::user();
+                            $user_detail = App\UserDetail::where('user_id',$user->id)->first();
+                            ?>
+                            <div class="dropdown ml-lg-2">
+                                <button type="button" id="header-dropdown"
+                                    class="btn btn-secondary dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                {{ $user_detail->display_name }}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="header-dropdown">
+                                    <a class="dropdown-item" href="/{{ $user->account_name }}">プロフィール</a>
+                                    <a class="dropdown-item btn btn-danger" href="/logout">ログアウト</a>
+                                </div>
+                            </div>
                         </li>
                     @else
                         <li class="nav-item">

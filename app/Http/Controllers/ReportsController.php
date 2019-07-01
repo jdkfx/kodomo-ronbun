@@ -7,6 +7,8 @@ use App\Report;
 use App\ReportDetail;
 use App\ReportText;
 use App\ReportAbstract;
+use App\User;
+use App\UserDetail;
 
 class ReportsController extends Controller
 {
@@ -49,7 +51,9 @@ class ReportsController extends Controller
         $report_text = new ReportText;
         $report_abstract = new ReportAbstract;
 
+        $user = \Auth::user();
         $report->title = $request->title;
+        $report->user_id = $user->id;
         $report->save();
 
         $path = $request->thumbnail->store('public/thumbnail');
@@ -77,8 +81,13 @@ class ReportsController extends Controller
         $report_text = ReportText::where('report_id',$report->id)->first();
         $report_abstract = ReportAbstract::where('report_id',$report->id)->first();
 
+        $user = User::find($report->user_id);
+        $user_detail = UserDetail::find($user->id);
+
         return view('reports.show',[
             'report' => $report,
+            'user' => $user,
+            'user_detail' => $user_detail,
             'report_detail' => $report_detail,
             'report_text' => $report_text,
             'report_abstract' => $report_abstract,

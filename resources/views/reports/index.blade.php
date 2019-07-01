@@ -21,7 +21,11 @@
                                 <div class="col-lg-8">
                                     <div class="card-body">
                                         <h3><a href="/reports/{{ $report->id }}">{{ $report->title }}</a></h3>
-                                        <h4><a href="#">表示名</a></h4>
+                                        <?php
+                                        $user = App\User::where('id',$report->user_id)->first();
+                                        $user_detail = App\UserDetail::find($user->id);
+                                         ?>
+                                        <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
                                         <h4>〇年〇月〇日 投稿</h4>
                                         <?php
                                         $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();

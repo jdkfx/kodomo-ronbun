@@ -20,3 +20,9 @@ Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 Route::get('/','ReportsController@index');
 Route::resource('reports','ReportsController');
+
+Route::get('/{account_name}','UsersController@show');
+
+Route::group(['middleware' => ['auth']],function(){
+    // Route::resource('reports','ReportsController', ['expect' => ['show']]);
+});
