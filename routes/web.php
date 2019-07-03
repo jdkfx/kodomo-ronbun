@@ -19,10 +19,15 @@ Route::post('login','Auth\LoginController@login');
 Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 Route::get('/','ReportsController@index');
-Route::resource('reports','ReportsController');
 
 Route::get('/{account_name}','UsersController@show');
 
 Route::group(['middleware' => ['auth']],function(){
-    // Route::resource('reports','ReportsController', ['expect' => ['show']]);
+    Route::post('reports','ReportsController@store');
+    Route::get('reports/create','ReportsController@create');
+    Route::put('reports/{id}','ReportsController@update');
+    Route::delete('reports/{id}','ReportsController@destroy');
+    Route::get('reports/{id}/edit','ReportsController@edit');
 });
+
+Route::get('reports/{id}','ReportsController@show');
