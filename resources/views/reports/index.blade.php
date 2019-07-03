@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    @include('commons.write_reports_button')
+    @if(\Auth::check())
+        @include('commons.write_reports_button')
+    @endif
     @include('commons.reports_navigation')
     <div class="reportsIndex">
-        <h3 id="numberOfNavi">新着の論文 3件</h3>
+        <h3 class="text-center">新着のろんぶん</h3>
         @if(count($reports) > 0)
             <ul style="padding:0;">
                 @foreach($reports as $report)
@@ -26,7 +28,10 @@
                                         $user_detail = App\UserDetail::find($user->id);
                                          ?>
                                         <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
-                                        <h4>〇年〇月〇日 投稿</h4>
+                                        <?php
+                                        $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
+                                         ?>
+                                        <h4>{{ $date }} 投稿</h4>
                                         <?php
                                         $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
                                          ?>

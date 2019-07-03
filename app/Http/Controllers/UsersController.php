@@ -12,7 +12,7 @@ class UsersController extends Controller
     public function show($account_name){
         $user = User::where('account_name',$account_name)->first();
         $user_detail = UserDetail::find($user->id);
-        $reports = Report::where('user_id',$user->id)->get();
+        $reports = Report::where('user_id',$user->id)->orderBy('created_at', 'desc')->get();
 
         return view('users.show',[
             'user' => $user,

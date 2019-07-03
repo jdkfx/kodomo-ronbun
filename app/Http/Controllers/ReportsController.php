@@ -14,7 +14,7 @@ class ReportsController extends Controller
 {
     public function index()
     {
-        $reports = Report::all();
+        $reports = Report::orderBy('created_at', 'desc')->paginate(10);
 
         return view('reports.index',[
             'reports' => $reports,

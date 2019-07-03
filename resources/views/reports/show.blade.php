@@ -7,16 +7,19 @@
         <div class="reportDetail card-body">
             <h2>{{ $report->title }}</h2>
             <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
-            <p>〇年〇月〇日 投稿</p>
+            <?php
+            $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
+             ?>
+            <p>{{ $date }} 投稿</p>
             @if(\Auth::check())
-            @if(\Auth::user()->id === $report->user_id)
-            <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
-            <form action="/reports/{{ $report->id }}" method="post" class="mt-2">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="delete">
-                <input type="submit" class="btn btn-danger" value="削除">
-            </form>
-            @endif
+                @if(\Auth::user()->id === $report->user_id)
+                    <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
+                    <form action="/reports/{{ $report->id }}" method="post" class="mt-2">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="submit" class="btn btn-danger" value="削除">
+                    </form>
+                @endif
             @endif
         </div>
         <div class="contents card-body">
