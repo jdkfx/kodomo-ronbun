@@ -27,7 +27,7 @@
             <div class="text-center">
                 <img src="{{ URL::to('/') }}/images/化石.jpg" alt="contentsImage" class="img-thumbnail">
             </div>
-            <p>{!! nl2br(e($report_text->contents_text),false) !!}</p>
+            <p>{!! $report_text->contents_text !!}</p>
         </div>
         <div class="comments card-body">
             <h3>コメント</h3>

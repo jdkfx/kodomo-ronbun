@@ -56,3 +56,24 @@
         <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
     </form>
 @endsection
+@section('js')
+<script>
+    CKEDITOR.replace('contents_text',{
+        scayt_autoStartup: false,
+        toolbarLocation: 'bottom',
+        forcePasteAsPlainText: true,
+        fillEmptyBlocks: false,
+        height: 500,
+        toolbarGroups:[
+            { name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
+            { name: 'styles', groups: [ 'styles' ] },
+            '/',
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+            { name: 'insert', groups: [ 'insert' ] },
+            { name: 'links', groups: [ 'links' ] },
+        ],
+        removeButtons:'Source,Save,NewPage,Preview,Print,Templates,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,CopyFormatting,RemoveFormat,Strike,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Font,FontSize,Styles,About,Maximize,ShowBlocks,TextColor,BGColor,Flash,SpecialChar,PageBreak,Iframe,Anchor,Image',
+    });
+</script>
+@endsection

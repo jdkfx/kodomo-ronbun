@@ -11,17 +11,17 @@
 
         <div class="form-group">
             <label for="title">タイトル</label>
-            <input type="text" name="title" id="title" value="テスト論文のタイトル" placeholder="（例）こんちゅうのふしぎ" class="form-control">
+            <input type="text" name="title" id="title" class="form-control">
         </div>
 
         <div class="form-group">
             <label for="contents_abstract">要約</label>
-            <textarea name="contents_abstract" rows="8" cols="80" placeholder="（例）こんちゅうのふしぎについてしらべてみました。&#13;&#10;※要約に書いた内容はトップページに表示されます。" class="form-control">テスト論文の要約</textarea>
+            <textarea name="contents_abstract" rows="8" cols="80" class="form-control"></textarea>
         </div>
 
         <div class="form-group">
             <label for="contents_text">本文</label>
-            <textarea name="contents_text" rows="30" cols="80" placeholder="（例）こんちゅうの食べ物のスキ・キライの実験をしました。&#13;&#10;じつはこんちゅうのスキな食べ物は〇〇で、キライな食べ物は〇〇ということがわかりました。" class="form-control">テスト論文の本文</textarea>
+            <textarea name="contents_text" class="form-control"></textarea>
         </div>
 
         <div class="form-group">
@@ -51,4 +51,25 @@
         </div>
         <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
     </form>
+@endsection
+@section('js')
+<script>
+    CKEDITOR.replace('contents_text',{
+        scayt_autoStartup: false,
+        toolbarLocation: 'bottom',
+        forcePasteAsPlainText: true,
+        fillEmptyBlocks: false,
+        height: 500,
+        toolbarGroups:[
+            { name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
+            { name: 'styles', groups: [ 'styles' ] },
+            '/',
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+            { name: 'insert', groups: [ 'insert' ] },
+            { name: 'links', groups: [ 'links' ] },
+        ],
+        removeButtons:'Source,Save,NewPage,Preview,Print,Templates,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,CopyFormatting,RemoveFormat,Strike,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Font,FontSize,Styles,About,Maximize,ShowBlocks,TextColor,BGColor,Flash,SpecialChar,PageBreak,Iframe,Anchor,Image',
+    });
+</script>
 @endsection
