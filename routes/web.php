@@ -20,10 +20,10 @@ Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 Route::get('/','ReportsController@index');
 
-Route::get('/categories','ReportsController@categories');
-Route::get('/categories/{category_id}','ReportsController@indexOfCategory');
+Route::get('categories','ReportsController@categories');
+Route::get('categories/{category_id}','ReportsController@indexOfCategory');
 
-Route::get('/{account_name}','UsersController@show');
+Route::get('{account_name}','UsersController@show');
 
 Route::group(['middleware' => ['auth']],function(){
     Route::post('reports','ReportsController@store');
