@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'display_name' => $data['display_name'],
             'email' => $data['email'],
-            'status' => "未設定",
+            'status' => '',
             'birthday' => "1999-11-17",
             'profile_text' => "よろしくお願いします。",
             'profile_image' => "未設定",

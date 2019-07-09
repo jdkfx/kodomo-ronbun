@@ -1,13 +1,59 @@
 @extends('layouts.app')
 @section('content')
 <div class="userProfile row justify-content-center">
-    <div class="profileImage text-center col-lg-4 col-6 mb-4">
-        <img src="{{ URL::to('/') }}/images/icon.jpg" alt="profileImage" class="img-thumbnail">
+    <div class="profile_image text-center col-lg-4 col-6 mb-4">
+        <img src="{{ URL::to('/') }}/images/icon.jpg" alt="profile_image" class="img-thumbnail">
     </div>
     <div class="profileText col-lg-8">
         <h4>表示名：{{ $user_detail->display_name }}</h4>
         <h5>アカウント名：{{ $user->account_name }}</h5>
         <p>自己紹介：{{ $user_detail->profile_text }}</p>
+        <?php
+        switch($user_detail->status){
+            case 1:
+                $status_text = "小学１年生";
+                break;
+            case 2:
+                $status_text = "小学２年生";
+                break;
+            case 3:
+                $status_text = "小学３年生";
+                break;
+            case 4;
+                $status_text = "小学４年生";
+                break;
+            case 5:
+                $status_text = "小学５年生";
+                break;
+            case 6:
+                $status_text = "小学６年生";
+                break;
+            case 7:
+                $status_text = "中学１年生";
+                break;
+            case 8:
+                $status_text = "中学２年生";
+                break;
+            case 9:
+                $status_text = "中学３年生";
+                break;
+            case 10:
+                $status_text = "高校１年生";
+                break;
+            case 11:
+                $status_text = "高校２年生";
+                break;
+            case 11:
+                $status_text = "高校３年生";
+                break;
+            case 0:
+                $status_text = "大人";
+                break;
+        }
+
+         ?>
+        <p>学年：{{ $status_text }}</p>
+        <a href="/{{ $user->account_name }}/edit" class="btn btn-info">プロフィールの編集</a>
     </div>
 </div>
 <div class="reportsIndex">
