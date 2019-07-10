@@ -21,7 +21,9 @@ Route::get('logout','Auth\LoginController@logout')->name('logout');
 Route::get('/','ReportsController@index');
 
 Route::get('categories','ReportsController@categories');
-Route::get('categories/{category_id}','ReportsController@indexOfCategory');
+Route::get('categories/{category_id}','SearchController@searchCategory');
+
+Route::get('search','SearchController@searchKeyword');
 
 Route::group(['middleware' => ['auth']],function(){
     Route::post('reports','ReportsController@store');

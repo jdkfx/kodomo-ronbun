@@ -154,17 +154,4 @@ class ReportsController extends Controller
     {
         return view('reports.categories');
     }
-
-    public function indexOfCategory($category_id)
-    {
-        $reports = array();
-        $report_details = ReportDetail::where('category_id',$category_id)->get();
-        foreach($report_details as $report_detail){
-            $reports[] = $report_detail->report;
-        }
-
-        return view('reports.index',[
-            'reports' => $reports,
-        ]);
-    }
 }

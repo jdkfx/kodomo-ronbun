@@ -6,8 +6,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggler">
-                <form class="form-inline ml-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="キーワードを入力" aria-label="Search">
+                <form class="form-inline ml-auto" action="/search">
+                    <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワードを入力" aria-label="Search">
                     <button class="btn btn-success my-2 my-sm-0" type="submit">検索</button>
                 </form>
                 <ul class="navbar-nav">
