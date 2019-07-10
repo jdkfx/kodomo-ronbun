@@ -7,13 +7,13 @@
         <input type="hidden" name="_method" value="put">
 
         <div class="userProfile row justify-content-center">
-            <div class="profileImage text-center col-lg-4 col-6 mb-4">
-                <img src="{{ URL::to('/') }}/images/icon.jpg" alt="profileImage" class="img-thumbnail">
-            </div>
-            <div class="profileText col-lg-8">
+            <div class="editProfile">
                 <div class="form-group">
-                    <label for="profile_image">プロフィール画像</label><br>
-                    <input type="file" name="profile_image" id="profileImage">
+                    <div id="upload-img">
+                        <label for="profile_image">プロフィール画像</label><br>
+                        <img v-show="uploadedImage" :src="uploadedImage" style="width:400px;" /><br>
+                        <input type="file" name="profile_image" id="profileImage" v-on:change="onFileChange">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="display_name">表示名</label>
@@ -29,7 +29,7 @@
                         <select name="status" id="status" class="form-control">
                             <?php
                             $check_status_id = $user_detail->status;
-                             ?>
+                            ?>
                             <option @if($check_status_id == '') selected @endif style="display:none;">未設定</option>
                             <option value="1" @if($check_status_id == '1') selected @endif>小学１年生</option>
                             <option value="2" @if($check_status_id == '2') selected @endif>小学２年生</option>

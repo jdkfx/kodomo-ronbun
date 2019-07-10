@@ -41,6 +41,8 @@ class UsersController extends Controller
         $user = User::where('account_name',$account_name)->first();
         $user_detail = UserDetail::find($user->id);
 
+        $path = $request->profile_image->store('public/profile_image');
+        $user_detail->profile_image = $path;
         $user_detail->display_name = $request->display_name;
         $user_detail->profile_text = $request->profile_text;
         $user_detail->status = $request->status;

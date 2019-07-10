@@ -7,8 +7,11 @@
         <input type="hidden" name="_method" value="put">
 
         <div class="form-group">
-            <label for="thumbnail">タイトル画像</label><br>
-            <input type="file" files="true" name="thumbnail" value="{{ Storage::url($report_detail->thumbnail) }}" id="thumbnail">
+            <div id="upload-img">
+                <label for="thumbnail">タイトル画像</label><br>
+                <img v-show="uploadedImage" :src="uploadedImage" style="width:400px;" /><br>
+                <input type="file" files="true" name="thumbnail" id="thumbnail"  v-on:change="onFileChange">
+            </div>
         </div>
 
         <div class="form-group">

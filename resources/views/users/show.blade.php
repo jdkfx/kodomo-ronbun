@@ -2,7 +2,7 @@
 @section('content')
 <div class="userProfile row justify-content-center">
     <div class="profile_image text-center col-lg-4 col-6 mb-4">
-        <img src="{{ URL::to('/') }}/images/icon.jpg" alt="profile_image" class="img-thumbnail">
+        <img src="{{ Storage::url($user_detail->profile_image) }}" alt="profile_image" class="img-thumbnail">
     </div>
     <div class="profileText col-lg-8">
         <h4>表示名：{{ $user_detail->display_name }}</h4>
