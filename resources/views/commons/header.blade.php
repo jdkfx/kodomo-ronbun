@@ -1,7 +1,7 @@
 <header class="mb-2">
-    <nav class="navbar navbar-light navbar-expand-lg bg-light">
+    <nav class="navbar navbar-light navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="/">こどもろんぶん</a>
+            <a class="navbar-brand" style="color:white;" href="/">こどもろんぶん</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

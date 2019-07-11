@@ -23,13 +23,14 @@
             @endif
         </div>
         <div class="contents card-body">
+            <h3>要約</h3>
             <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
-            <div class="text-center">
-                <img src="{{ URL::to('/') }}/images/化石.jpg" alt="contentsImage" class="img-thumbnail">
-            </div>
+            <h3>本文</h3>
             <p>{!! $report_text->contents_text !!}</p>
         </div>
-        <div class="comments card-body">
+
+        <?php // TODO: コメント機能の追加 ?>
+        <!-- <div class="comments card-body">
             <h3>コメント</h3>
             <form>
                 <div class="form-group">
@@ -42,6 +43,6 @@
                 <li class="list-group-item">userName : コメント</li>
                 <li class="list-group-item">userName : コメント</li>
             </ul>
-        </div>
+        </div> -->
     </div>
 @endsection

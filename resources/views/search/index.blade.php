@@ -30,11 +30,11 @@
                                         $user = App\User::where('id',$report->user_id)->first();
                                         $user_detail = App\UserDetail::find($user->id);
                                          ?>
-                                        <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
+                                        <p class="report_detail"><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></p>
                                         <?php
                                         $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
                                          ?>
-                                        <h4>{{ $date }} 投稿</h4>
+                                        <p class="report_detail">{{ $date }} 投稿</p>
                                         <?php
                                         $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
                                          ?>

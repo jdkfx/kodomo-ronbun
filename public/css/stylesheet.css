@@ -3,10 +3,84 @@
 /* 全体のデザイン */
 body {
     margin:0;
+    background-color:#FFFFBB;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.navbar {
+    background-color:#FFC933;
+}
+
+.container .navbar-brand {
+    font-size:24px;
+    font-weight:bold;
+}
+
+.container .navbar-toggler{
+    border-color:#FFC933;
+}
+
+.container .navbar-collapse {
+    background-color:#FFC933;
+}
+
+.container .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 ul {
     list-style:none;
+}
+
+#navigation {
+    overflow: hidden;
+    width: 100%;
+    margin: 2em auto;
+}
+
+#navigation select {
+    text-align: center;
+    background-color:#FFC933;
+    height:50px;
+    width: 100%;
+    padding-right: 1em;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#navigation select::-ms-expand {
+    display: none;
+}
+
+#navigation.select-top {
+    position: relative;
+    background-color:#FFC933;
+    border-radius:25px;
+}
+
+#navigation.select-top::before {
+    position: absolute;
+    top: 45%;
+    right: 20px;;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #ffffff;
+    pointer-events: none;
+}
+
+#navigation.select-top select {
+    color:#ffffff;
+    font-weight:bold;
+    font-size:20px;
+    padding-left:20px;
 }
 
 .reports {
@@ -15,4 +89,20 @@ ul {
 
 .reportDetail {
     padding-left:20px;
+}
+
+.card-body h3 a, .card-body h3 {
+    font-size:24px;
+    color:#000000;
+    margin:0;
+}
+
+.card-body .report_detail, .card-body .report_detail a {
+    font-size:16px;
+    color:#9E9E9E;
+    margin:0;
+}
+
+.card-body p {
+    margin-top:12px;
 }

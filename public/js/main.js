@@ -19,3 +19,19 @@ new Vue({
         },
     },
 })
+
+new Vue({
+    el: '#navigation',
+    data: {
+        options: [
+            { text: '新着', value: '/' },
+            { text: 'おすすめ', value: '/' },
+            { text: 'カテゴリ', value: '/categories' }
+        ]
+    },
+    methods: {
+        jump: function(e){
+            location.href = e.target.value;
+        }
+    }
+})
