@@ -28,6 +28,16 @@ body {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.navbar .container .navbar-collapse button {
+    background-color:#FFA07A;
+    color:#ffffff;
+}
+
+.submit-report a,.navbar .container .navbar-collapse .dropdown-toggle {
+    background-color:#ff8c00;
+    color:#ffffff;
+}
+
 ul {
     list-style:none;
 }
@@ -83,6 +93,20 @@ ul {
     padding-left:20px;
 }
 
+.container .auth h3 {
+    font-size:24px;
+    text-align: center;
+}
+
+.container .auth .auth-link {
+    text-align:center;
+    font-size:20px;
+}
+
+.container .auth form {
+    margin:0 auto;
+}
+
 .reports {
     margin-bottom:20px;
 }
@@ -104,5 +128,22 @@ ul {
 }
 
 .card-body p {
+    margin:0;
+}
+
+.card-body .report_abstract {
     margin-top:12px;
+}
+
+.contents .contents-title {
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.contents .contents-body {
+    margin-bottom:10px;
+}
+
+footer {
+    margin-top:40px;
 }

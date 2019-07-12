@@ -7,7 +7,7 @@
         <div class="form-group">
             <div id="upload-img">
                 <label for="thumbnail">タイトル画像</label><br>
-                <img v-show="uploadedImage" :src="uploadedImage" style="width:400px;" /><br>
+                <img v-show="uploadedImage" :src="uploadedImage" class="col-lg-6" /><br>
                 <input type="file" files="true" name="thumbnail" id="thumbnail" v-on:change="onFileChange">
             </div>
         </div>
@@ -27,10 +27,10 @@
             <textarea name="contents_text" class="form-control"></textarea>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="reportsImage">画像</label><br>
             <input type="file" name="reportsImage" id="reportsImage">
-        </div>
+        </div> -->
 
         <div class="form-row">
             <div class="form-group  col-lg-6">

@@ -1,13 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    @if(\Auth::check())
-        @include('commons.write_reports_button')
-    @endif
     <div id="navigation" class="select-top">
         <?php $selected = 'new'; ?>
         <select v-on:change="jump">
             <option value="/" @if($selected == 'new') selected @endif>新着</option>
-            <option value="/" @if($selected == 'recommend') selected @endif>おすすめ</option>
+            <?php // TODO: おすすめの追加 ?>
+            <!-- <option value="/" @if($selected == 'recommend') selected @endif>おすすめ</option> -->
             <option value="/categories" @if($selected == 'category') selected @endif>カテゴリ</option>
         </select>
     </div>
@@ -41,7 +39,7 @@
                                         <?php
                                         $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
                                          ?>
-                                        <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
+                                        <p class="report_abstract">{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
                                     </div>
                                 </div>
                             </div>

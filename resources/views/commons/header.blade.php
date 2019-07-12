@@ -8,10 +8,15 @@
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <form class="form-inline ml-auto" action="/search">
                     <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="キーワードを入力" aria-label="Search">
-                    <button class="btn btn-success my-2 my-sm-0" type="submit">検索</button>
+                    <button class="btn my-2 my-sm-0" type="submit">検索</button>
                 </form>
                 <ul class="navbar-nav">
                     @if(Auth::check())
+                        <li>
+                            <div class="submit-report">
+                                <a href="/reports/create" style="color:#ffffff;" class="btn my-2 my-sm-0 ml-lg-2">投稿</a>
+                            </div>
+                        </li>
                         <li>
                             <?php
                             $user = \Auth::user();
@@ -19,7 +24,7 @@
                             ?>
                             <div class="dropdown ml-lg-2">
                                 <button type="button" id="header-dropdown"
-                                    class="btn btn-secondary dropdown-toggle"
+                                    class="btn dropdown-toggle"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
@@ -27,13 +32,13 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="header-dropdown">
                                     <a class="dropdown-item" href="/{{ $user->account_name }}">プロフィール</a>
-                                    <a class="dropdown-item btn btn-danger" href="/logout">ログアウト</a>
+                                    <a class="dropdown-item" href="/logout">ログアウト</a>
                                 </div>
                             </div>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="/login">ログイン</a>
+                            <a class="btn ml-lg-2" style="background-color:#ff8c00;color:#ffffff;" href="/login">ログイン</a>
                         </li>
                     @endif
                 </ul>

@@ -2,15 +2,15 @@
 @section('content')
     <div class="reports card">
         <div class="card-body text-center">
-            <img src="{{ Storage::url($report_detail->thumbnail) }}" class="img-thumbnail" alt="thumbnailOfReports" style="width:600px;">
+            <img src="{{ Storage::url($report_detail->thumbnail) }}" class="col-lg-7" alt="thumbnailOfReports">
         </div>
         <div class="reportDetail card-body">
-            <h2>{{ $report->title }}</h2>
-            <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
+            <h3>{{ $report->title }}</h3>
+            <p class="report_detail"><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></p>
             <?php
             $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
              ?>
-            <p>{{ $date }} 投稿</p>
+            <p class="report_detail">{{ $date }} 投稿</p>
             @if(\Auth::check())
                 @if(\Auth::user()->id === $report->user_id)
                     <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
@@ -23,10 +23,10 @@
             @endif
         </div>
         <div class="contents card-body">
-            <h3>要約</h3>
-            <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
-            <h3>本文</h3>
-            <p>{!! $report_text->contents_text !!}</p>
+            <p class="contents-title">要約</p>
+            <p class="contents-body">{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
+            <p class="contents-title">本文</p>
+            <p class="contents-body">{!! $report_text->contents_text !!}</p>
         </div>
 
         <?php // TODO: コメント機能の追加 ?>
