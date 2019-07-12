@@ -2,7 +2,7 @@
 @section('content')
     <div class="reports card">
         <div class="card-body text-center">
-            <img src="{{ Storage::url($report_detail->thumbnail) }}" class="col-lg-7" alt="thumbnailOfReports">
+            <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="col-lg-7" alt="thumbnailOfReports">
         </div>
         <div class="reportDetail card-body">
             <h3>{{ $report->title }}</h3>

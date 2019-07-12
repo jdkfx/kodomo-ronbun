@@ -29,10 +29,11 @@
             <textarea name="contents_text" rows="30" cols="80" class="form-control">{!! $report_text->contents_text !!}</textarea>
         </div>
 
-        <div class="form-group">
+        <?php // TODO: 画像アップロード ?>
+        <!-- <div class="form-group">
             <label for="reportsImage">画像</label><br>
             <input type="file" name="reportsImage" id="reportsImage">
-        </div>
+        </div> -->
 
         <div class="form-row">
             <div class="form-group  col-lg-6">

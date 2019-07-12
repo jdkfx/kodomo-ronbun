@@ -27,6 +27,7 @@
             <textarea name="contents_text" class="form-control"></textarea>
         </div>
 
+        <?php // TODO: 画像アップロード ?>
         <!-- <div class="form-group">
             <label for="reportsImage">画像</label><br>
             <input type="file" name="reportsImage" id="reportsImage">

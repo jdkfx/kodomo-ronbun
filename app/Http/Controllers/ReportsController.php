@@ -9,6 +9,9 @@ use App\ReportText;
 use App\ReportAbstract;
 use App\User;
 use App\UserDetail;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class ReportsController extends Controller
 {
@@ -56,7 +59,8 @@ class ReportsController extends Controller
         $report->user_id = $user->id;
         $report->save();
 
-        $path = $request->thumbnail->store('public/thumbnail');
+        $reqThumb = $request->file('thumbnail');
+        $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
 
         $report->report_detail()->create([
             'thumbnail' => $path,
@@ -127,7 +131,8 @@ class ReportsController extends Controller
         $report->title = $request->title;
         $report->save();
 
-        $path = $request->thumbnail->store('public/thumbnail');
+        $reqThumb = $request->file('thumbnail');
+        $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
         $report_detail->thumbnail = $path;
         $report_detail->category_id = $request->category_id;
         $report_detail->save();
