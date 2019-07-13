@@ -1,13 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="userProfile row justify-content-center">
-    <div class="profile_image text-center col-lg-4 col-6 mb-4">
+<div class="userProfile mt-4 row">
+    <div class="profile_image col-lg-4 col-6 mb-4">
         <img src="{{ Storage::url($user_detail->profile_image) }}" alt="profile_image" class="img-thumbnail">
     </div>
-    <div class="profileText col-lg-8">
-        <h4>表示名：{{ $user_detail->display_name }}</h4>
-        <h5>アカウント名：{{ $user->account_name }}</h5>
-        <p>自己紹介：{{ $user_detail->profile_text }}</p>
+    <div class="profileText col-lg-8 mb-4">
+        <h3>{{ $user_detail->display_name }}
+            @if(\Auth::check())
+                @if(\Auth::user()->id === $user->id)
+                    <a href="/{{ $user->account_name }}/edit"><i class="fas fa-user-edit"></i></a>
+                @endif
+            @endif
+        </h3>
+        <p>{{ $user->account_name }}</p>
         <?php
         switch($user_detail->status){
             case 1:
@@ -53,7 +58,7 @@
 
          ?>
         <p>学年：{{ $status_text }}</p>
-        <a href="/{{ $user->account_name }}/edit" class="btn btn-info">プロフィールの編集</a>
+        <p class="profile_text">{{ $user_detail->profile_text }}</p>
     </div>
 </div>
 <div class="reportsIndex">
@@ -69,21 +74,21 @@
                                     <?php
                                     $report_detail = App\ReportDetail::where('report_id',$report->id)->first();
                                      ?>
-                                    <img src="{{ Storage::url($report_detail->thumbnail) }}" class="img-thumbnail" alt="thumbnailOfReports">
+                                    <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body">
                                     <h3><a href="/reports/{{ $report->id }}">{{ $report->title }}</a></h3>
-                                    <h4><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></h4>
+                                    <p class="report_detail"><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></p>
                                     <?php
                                     $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
                                      ?>
-                                    <h4>{{ $date }} 投稿</h4>
+                                    <p class="report_detail">{{ $date }} 投稿</p>
                                     <?php
                                     $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
                                      ?>
-                                    <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
+                                    <p class="report_abstract">{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
                                 </div>
                             </div>
                         </div>

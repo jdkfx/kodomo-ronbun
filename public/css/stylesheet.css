@@ -115,13 +115,13 @@ ul {
     padding-left:20px;
 }
 
-.card-body h3 a, .card-body h3 {
+.card-body h3 a, .card-body h3, .profileText h3 {
     font-size:24px;
     color:#000000;
     margin:0;
 }
 
-.card-body .report_detail, .card-body .report_detail a {
+.card-body .report_detail, .card-body .report_detail a, .profileText p {
     font-size:16px;
     color:#9E9E9E;
     margin:0;
@@ -144,6 +144,21 @@ ul {
     margin-bottom:10px;
 }
 
+
+.profileText .profile_text {
+    font-size:18px;
+    color:#000000;
+    margin-top:10px;
+}
+
+.profileText h3 a i::before {
+    color:#9E9E9E;
+}
+
 footer {
     margin-top:40px;
+}
+
+footer p a {
+    color:#000000;
 }

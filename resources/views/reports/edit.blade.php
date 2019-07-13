@@ -2,31 +2,34 @@
 @section('content')
     <form action="/reports/{{ $report->id }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-        @include('commons.error_messages')
 
         <input type="hidden" name="_method" value="put">
 
         <div class="form-group">
             <div id="upload-img">
                 <label for="thumbnail">タイトル画像</label><br>
-                <img v-show="uploadedImage" :src="uploadedImage" style="width:400px;" /><br>
+                <img v-show="uploadedImage" :src="uploadedImage" class="col-lg-6" /><br>
                 <input type="file" files="true" name="thumbnail" id="thumbnail"  v-on:change="onFileChange">
             </div>
+            <span>{{ $errors->first('thumbnail') }}</span>
         </div>
 
         <div class="form-group">
             <label for="title">タイトル</label>
             <input type="text" name="title" id="title" value="{{ $report->title }}" class="form-control">
+            <span>{{ $errors->first('title') }}</span>
         </div>
 
         <div class="form-group">
             <label for="contents_abstract">要約</label>
             <textarea name="contents_abstract" rows="8" cols="80" class="form-control">{!! $report_abstract->contents_abstract !!}</textarea>
+            <span>{{ $errors->first('contents_abstract') }}</span>
         </div>
 
         <div class="form-group">
             <label for="contents_text">本文</label>
             <textarea name="contents_text" rows="30" cols="80" class="form-control">{!! $report_text->contents_text !!}</textarea>
+            <span>{{ $errors->first('contents_text') }}</span>
         </div>
 
         <?php // TODO: 画像アップロード ?>
@@ -55,6 +58,7 @@
                     <option value="11" @if($check_category_id == '11') selected @endif>大地（だいち）</option>
                     <option value="0" @if($check_category_id == '0') selected @endif>その他（そのほか）</option>
                 </select>
+                <span>{{ $errors->first('category_id') }}</span>
             </div>
         </div>
         <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">

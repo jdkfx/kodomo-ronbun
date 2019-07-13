@@ -25,6 +25,14 @@ Route::get('categories/{category_id}','SearchController@searchCategory');
 
 Route::get('search','SearchController@searchKeyword');
 
+Route::get('terms', function(){
+    return view('commons.terms');
+});
+
+Route::get('policy', function(){
+    return view('commons.policy');
+});
+
 Route::group(['middleware' => ['auth']],function(){
     Route::post('reports','ReportsController@store');
     Route::get('reports/create','ReportsController@create');
