@@ -7,6 +7,9 @@ use App\UserDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\UserRegistered;
+use Illuminate\Support\Facades\Mail;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -64,20 +67,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'account_name' => $data['account_name'],
-            'password' => bcrypt($data['password']),
-        ]);
+        try {
+            DB::beginTransaction();
 
-        $user->user_detail()->create([
-            'user_id' => $user->id,
-            'display_name' => $data['display_name'],
-            'email' => $data['email'],
-            'status' => '',
-            'birthday' => "1999-11-17",
-            'profile_text' => "よろしくお願いします。",
-            'profile_image' => "未設定",
-        ]);
+            $user = User::create([
+                'account_name' => $data['account_name'],
+                'password' => bcrypt($data['password']),
+            ]);
+
+            $user->user_detail()->create([
+                'user_id' => $user->id,
+                'display_name' => $data['display_name'],
+                'email' => $data['email'],
+                'status' => '',
+                'birthday' => "1999-11-17",
+                'profile_text' => "よろしくお願いします。",
+                'profile_image' => "未設定",
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+
+        $user_detail = UserDetail::find($user->id);
+        $display_name = $user_detail->display_name;
+        Mail::to($user_detail->email)->send(new UserRegistered($display_name));
 
         return $user;
     }
