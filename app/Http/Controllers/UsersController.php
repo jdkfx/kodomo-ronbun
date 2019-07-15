@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserDetail;
 use App\Report;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class UsersController extends Controller
 {
@@ -35,13 +37,14 @@ class UsersController extends Controller
         $this->validate($request,[
             'display_name' => 'required',
             'profile_image' => 'required|image',
-            // 'prifile_text' =>'required',
+            'profile_text' =>'required',
         ]);
 
         $user = User::where('account_name',$account_name)->first();
         $user_detail = UserDetail::find($user->id);
 
-        $path = $request->profile_image->store('public/profile_image');
+        $reqProImg = $request->file('profile_image');
+        $path = Storage::disk('s3')->put('/profile_image', $reqProImg, 'public');
         $user_detail->profile_image = $path;
         $user_detail->display_name = $request->display_name;
         $user_detail->profile_text = $request->profile_text;
@@ -50,4 +53,14 @@ class UsersController extends Controller
 
         return redirect('/'.$user->account_name);
     }
+
+    // TODO: 退会機能を実装する
+    // public function destroy($account_name)
+    // {
+    //     $user = User::where('account_name',$account_name)->first();
+    //
+    //     $user->delete();
+    //
+    //     return redirect('/');
+    // }
 }

@@ -19,7 +19,6 @@ class CreateUserDetailsTable extends Migration
             $table->string('display_name');
             $table->string('email')->unique();
             $table->string('status');
-            $table->date('birthday');
             $table->string('profile_image');
             $table->text('profile_text');
             $table->timestamps();

@@ -2,7 +2,7 @@
 @section('content')
 <div class="userProfile mt-4 row">
     <div class="profile_image col-lg-4 col-6 mb-4">
-        <img src="{{ Storage::url($user_detail->profile_image) }}" alt="profile_image" class="img-thumbnail">
+        <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $user_detail->profile_image }}" alt="profile_image" class="img-thumbnail">
     </div>
     <div class="profileText col-lg-8 mb-4">
         <h3>{{ $user_detail->display_name }}

@@ -32,6 +32,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="header-dropdown">
                                     <a class="dropdown-item" href="/{{ $user->account_name }}">プロフィール</a>
+                                    <a class="dropdown-item" href="/setting">アカウント設定</a>
                                     <a class="dropdown-item" href="/logout">ログアウト</a>
                                 </div>
                             </div>
