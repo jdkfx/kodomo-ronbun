@@ -74,6 +74,10 @@ class SearchController extends Controller
                 break;
         }
 
+        if(!($category_id >= 0 && $category_id <= 11)){
+            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
+        }
+
         return view('search.index',[
             'reports' => $reports,
             'category' => $category,

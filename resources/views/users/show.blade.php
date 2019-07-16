@@ -16,43 +16,46 @@
         <?php
         switch($user_detail->status){
             case 1:
-                $status_text = "小学１年生";
+                $status_text = '小学１年生';
                 break;
             case 2:
-                $status_text = "小学２年生";
+                $status_text = '小学２年生';
                 break;
             case 3:
-                $status_text = "小学３年生";
+                $status_text = '小学３年生';
                 break;
             case 4;
-                $status_text = "小学４年生";
+                $status_text = '小学４年生';
                 break;
             case 5:
-                $status_text = "小学５年生";
+                $status_text = '小学５年生';
                 break;
             case 6:
-                $status_text = "小学６年生";
+                $status_text = '小学６年生';
                 break;
             case 7:
-                $status_text = "中学１年生";
+                $status_text = '中学１年生';
                 break;
             case 8:
-                $status_text = "中学２年生";
+                $status_text = '中学２年生';
                 break;
             case 9:
-                $status_text = "中学３年生";
+                $status_text = '中学３年生';
                 break;
             case 10:
-                $status_text = "高校１年生";
+                $status_text = '高校１年生';
                 break;
             case 11:
-                $status_text = "高校２年生";
+                $status_text = '高校２年生';
                 break;
             case 11:
-                $status_text = "高校３年生";
+                $status_text = '高校３年生';
                 break;
             case 0:
-                $status_text = "大人";
+                $status_text = '大人';
+                break;
+            case 99:
+                $status_text = '未設定';
                 break;
         }
 

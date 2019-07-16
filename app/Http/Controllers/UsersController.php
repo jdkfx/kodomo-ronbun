@@ -8,11 +8,15 @@ use App\UserDetail;
 use App\Report;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     public function show($account_name){
         $user = User::where('account_name',$account_name)->first();
+        if($user == null){
+            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
+        }
         $user_detail = UserDetail::find($user->id);
         $reports = Report::where('user_id',$user->id)->orderBy('created_at', 'desc')->get();
 
@@ -25,7 +29,13 @@ class UsersController extends Controller
 
     public function edit($account_name){
         $user = User::where('account_name',$account_name)->first();
+        if($user == null){
+            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
+        }
         $user_detail = UserDetail::find($user->id);
+        if(Auth::id() != $user_detail->user_id){
+            return redirect('/');
+        }
 
         return view('users.edit',[
             'user' => $user,

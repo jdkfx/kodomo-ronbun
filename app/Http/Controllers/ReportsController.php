@@ -12,6 +12,7 @@ use App\UserDetail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Auth;
 
 class ReportsController extends Controller
 {
@@ -81,6 +82,9 @@ class ReportsController extends Controller
     public function show($id)
     {
         $report = Report::find($id);
+        if($report == null){
+            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
+        }
         $report_detail = ReportDetail::where('report_id',$report->id)->first();
         $report_text = ReportText::where('report_id',$report->id)->first();
         $report_abstract = ReportAbstract::where('report_id',$report->id)->first();
@@ -101,6 +105,12 @@ class ReportsController extends Controller
     public function edit($id)
     {
         $report = Report::find($id);
+        if($report == null){
+            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
+        }
+        if(Auth::id() != $report->user_id){
+            return redirect('/');
+        }
         $report_detail = ReportDetail::where('report_id',$report->id)->first();
         $report_text = ReportText::where('report_id',$report->id)->first();
         $report_abstract = ReportAbstract::where('report_id',$report->id)->first();
