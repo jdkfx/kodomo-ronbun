@@ -40,12 +40,12 @@ Route::group(['middleware' => ['auth']],function(){
     Route::delete('reports/{id}','ReportsController@destroy');
     Route::get('reports/{id}/edit','ReportsController@edit');
 
+    Route::get('setting/edit','SettingController@edit');
+    Route::put('setting','SettingController@update');
+
     Route::get('{account_name}/edit','UsersController@edit');
     Route::put('{account_name}','UsersController@update');
 
-    Route::get('setting/edit','SettingController@edit');
-    Route::put('setting','SettingController@update');
-    Route::get('setting','SettingController@show');
     // TODO: 退会機能を実装する
     // Route::delete('{account_name}','UsersController@destroy');
 });

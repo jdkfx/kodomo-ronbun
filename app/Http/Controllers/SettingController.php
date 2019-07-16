@@ -6,21 +6,13 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserDetail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Input;
+use Hash;
+use App\Rules\ExistsPassword;
 
 class SettingController extends Controller
 {
-    public function show()
-    {
-        $user_id = Auth::id();
-        $user = User::where('id',$user_id)->first();
-        $user_detail = UserDetail::find($user->id);
-
-        return view('user_settings.show',[
-            'user' => $user,
-            'user_detail' => $user_detail,
-        ]);
-    }
-
     public function edit()
     {
         $user_id = Auth::id();
@@ -35,14 +27,41 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        $this->validate($request,[
-
-        ]);
-
         $user_id = Auth::id();
         $user = User::where('id',$user_id)->first();
         $user_detail = UserDetail::find($user->id);
 
-        return redirect('/setting');
+        $this->validate($request,[
+            'account_name' => [
+                'required',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'email' => [
+                'required',
+                Rule::unique('user_details')->ignore($user->id , 'user_id'),
+            ],
+        ]);
+
+        if(isset($request->passwordNew)){
+            $this->validate($request,[
+                'password' => [
+                    new ExistsPassword(auth()->user())
+                ],
+                'passwordNew' => 'required|string|min:6|confirmed',
+            ]);
+        }
+
+        $user->account_name = $request->account_name;
+        if(isset($request->passwordNew)){
+            $hashedPassword = $user->password;
+            $password = Input::get('password');
+            $user->password = Hash::make(Input::get('passwordNew'));
+        }
+        $user->save();
+
+        $user_detail->email = $request->email;
+        $user_detail->save();
+
+        return redirect('/setting/edit');
     }
 }
