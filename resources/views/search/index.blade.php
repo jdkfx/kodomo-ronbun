@@ -2,11 +2,11 @@
 @section('content')
     <div class="reportsIndex">
         @if(isset($keyword))
-            <h3 class="text-center">{{ $keyword }} の検索結果</h3>
+            <h3 class="text-center">{{ $keyword }} の検索結果 {{ $countReports }}件</h3>
         @endif
 
         @if(isset($category))
-            <h3 class="text-center">{{ $category }} の一覧</h3>
+            <h3 class="text-center">{{ $category }} の一覧 {{ $countReports }}件</h3>
         @endif
 
         @if(count($reports) > 0)

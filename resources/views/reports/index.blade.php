@@ -47,6 +47,9 @@
                     </li>
                 @endforeach
             </ul>
+            <div class="d-flex justify-content-center">
+                {{ $reports->links('pagination::bootstrap-4') }}
+            </div>
         @endif
     </div>
 @endsection

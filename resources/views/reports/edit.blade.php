@@ -8,6 +8,9 @@
         <div class="form-group">
             <div id="upload-img">
                 <label for="thumbnail">タイトル画像</label><br>
+                <p>現在のタイトル画像 ▼</p>
+                <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="col-lg-6" alt="">
+                <p>変更する場合こちらに表示されます ▼</p>
                 <img v-show="uploadedImage" :src="uploadedImage" class="col-lg-6" /><br>
                 <input type="file" files="true" name="thumbnail" id="thumbnail"  v-on:change="onFileChange">
             </div>

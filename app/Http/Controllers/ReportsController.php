@@ -18,7 +18,7 @@ class ReportsController extends Controller
 {
     public function index()
     {
-        $reports = Report::orderBy('created_at', 'desc')->paginate(10);
+        $reports = Report::latest()->paginate(20);
 
         return view('reports.index',[
             'reports' => $reports,
@@ -127,7 +127,6 @@ class ReportsController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'thumbnail' => 'required|image',
             'category_id' =>'required',
             'contents_text' => 'required',
             'contents_abstract' => 'required',
@@ -142,8 +141,13 @@ class ReportsController extends Controller
         $report->save();
 
         $reqThumb = $request->file('thumbnail');
-        $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
-        $report_detail->thumbnail = $path;
+        if(isset($reqThumb)){
+            $this->validate($request,[
+                'thumbnail' => 'image',
+            ]);
+            $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
+            $report_detail->thumbnail = $path;
+        }
         $report_detail->category_id = $request->category_id;
         $report_detail->save();
 

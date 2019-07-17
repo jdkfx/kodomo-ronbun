@@ -18,12 +18,14 @@ class UsersController extends Controller
             abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
         }
         $user_detail = UserDetail::find($user->id);
-        $reports = Report::where('user_id',$user->id)->orderBy('created_at', 'desc')->get();
+        $reports = Report::where('user_id',$user->id)->latest()->paginate(20);
+        $countReports = $reports->count();
 
         return view('users.show',[
             'user' => $user,
             'user_detail' => $user_detail,
             'reports' => $reports,
+            'countReports' => $countReports,
         ]);
     }
 

@@ -65,7 +65,7 @@
     </div>
 </div>
 <div class="reportsIndex">
-    <h3 class="text-center">投稿したろんぶん</h3>
+    <h3 class="text-center">投稿したろんぶん {{ $countReports }}件</h3>
     @if(count($reports) > 0)
         <ul style="padding:0;">
             @foreach($reports as $report)
@@ -99,6 +99,9 @@
                 </li>
             @endforeach
         </ul>
+        <div class="d-flex justify-content-center">
+            {{ $reports->links('pagination::bootstrap-4') }}
+        </div>
     @endif
 </div>
 @endsection

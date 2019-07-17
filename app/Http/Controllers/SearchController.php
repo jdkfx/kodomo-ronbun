@@ -20,9 +20,11 @@ class SearchController extends Controller
             return redirect('/');
         }
 
-        $reports = $query->orderBy('created_at','desc')->paginate(20);
+        $reports = $query->latest()->paginate(20);
+        $countReports = $reports->count();
         return view('search.index',[
             'reports' => $reports,
+            'countReports' => $countReports,
             'keyword' => $keyword,
         ]);
     }
@@ -30,9 +32,11 @@ class SearchController extends Controller
     public function searchCategory($category_id)
     {
         $reports = array();
+        $countReports = 0;
         $report_details = ReportDetail::where('category_id',$category_id)->get();
         foreach($report_details as $report_detail){
             $reports[] = $report_detail->report;
+            $countReports++;
         }
 
         switch($category_id){
@@ -80,6 +84,7 @@ class SearchController extends Controller
 
         return view('search.index',[
             'reports' => $reports,
+            'countReports' => $countReports,
             'category' => $category,
         ]);
     }

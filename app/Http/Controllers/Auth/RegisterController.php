@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
         $user_detail = UserDetail::find($user->id);
         $display_name = $user_detail->display_name;
-        Mail::to($user_detail->email)->send(new UserRegistered($display_name));
+        // Mail::to($user_detail->email)->send(new UserRegistered($display_name));
 
         return $user;
     }
