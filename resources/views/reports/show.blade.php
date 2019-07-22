@@ -13,12 +13,33 @@
             <p class="report_detail">{{ $date }} 投稿</p>
             @if(\Auth::check())
                 @if(\Auth::user()->id === $report->user_id)
-                    <a class="btn btn-primary" href="/reports/{{ $report->id }}/edit">編集</a>
-                    <form action="/reports/{{ $report->id }}" method="post" class="mt-2">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="submit" class="btn btn-danger" value="削除">
-                    </form>
+                    <div class="dropdown">
+                        <button type="button" id="report-dropdown"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="report-dropdown">
+                        <a class="dropdown-item" href="/reports/{{ $report->id }}/edit">編集</a>
+                        <form action="/reports/{{ $report->id }}" method="post" class="dropdown-item" style="display:block;">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="submit" value="削除"
+                            style="
+                            background-color:transparent;
+                            border:none;
+                            padding:0;
+                            margin:0;
+                            width:100%;
+                            height:100%;
+                            text-align:left;
+                            display: block;
+                            ">
+                        </form>
+                    </div>
+                </div>
                 @endif
             @endif
         </div>

@@ -110,5 +110,6 @@ return [
         'status' => '学年',
         'account_name' => 'アカウント名',
         'passwordNew' => '新しいパスワード',
+        'agree' => '利用規約、プライバシーポリシーへの同意',
     ],
 ];

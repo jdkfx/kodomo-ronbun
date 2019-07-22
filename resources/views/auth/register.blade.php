@@ -37,7 +37,12 @@
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                 <span>{{ $errors->first('password_confirmation') }}</span>
             </div>
-            
+
+            <div class="form-group">
+                <input name="agree" type="checkbox" value="1"><a href="/terms">利用規約</a>、<a href="/policy">プライバシーポリシー</a>に同意する <br>
+                <span>{{ $errors->first('agree') }}</span>
+            </div>
+
             <input type="submit" value="登録する" class="btn btn-info" style="width:100%;">
         </form>
     </div>
