@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <label for="email">メールアドレス</label>
-                <input type="email" name="email" id="email" class="form-control" value="{{ $user_detail->email }}">
+                <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}">
                 <span>{{ $errors->first('email') }}</span>
             </div>
 

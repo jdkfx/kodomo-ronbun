@@ -37,6 +37,6 @@ class ExistsPassword implements Rule
      */
     public function message()
     {
-        return '現在のパスワードが違っています';
+        return '現在のパスワードが違っています。';
     }
 }

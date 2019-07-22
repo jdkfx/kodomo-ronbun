@@ -15,7 +15,6 @@ class UserDetailsTableSeeder extends Seeder
             [
                 'user_id' => '1',
                 'display_name' => '山田',
-                'email' => 'yamada@example.com',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
                 'profile_image' => '未設定',
@@ -23,7 +22,6 @@ class UserDetailsTableSeeder extends Seeder
             [
                 'user_id' => '2',
                 'display_name' => '鈴木',
-                'email' => 'suzuki@example.com',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
                 'profile_image' => '未設定',
@@ -31,7 +29,6 @@ class UserDetailsTableSeeder extends Seeder
             [
                 'user_id' => '3',
                 'display_name' => '佐藤',
-                'email' => 'sato@example.com',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
                 'profile_image' => '未設定',

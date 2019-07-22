@@ -17,7 +17,6 @@ class CreateUserDetailsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('display_name');
-            $table->string('email')->unique();
             $table->string('status');
             $table->string('profile_image');
             $table->text('profile_text');

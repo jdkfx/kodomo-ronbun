@@ -38,7 +38,7 @@ class SettingController extends Controller
             ],
             'email' => [
                 'required',
-                Rule::unique('user_details')->ignore($user->id , 'user_id'),
+                Rule::unique('users')->ignore($user->id),
             ],
         ]);
 
@@ -57,10 +57,8 @@ class SettingController extends Controller
             $password = Input::get('password');
             $user->password = Hash::make(Input::get('passwordNew'));
         }
+        $user->email = $request->email;
         $user->save();
-
-        $user_detail->email = $request->email;
-        $user_detail->save();
 
         return redirect('/setting/edit');
     }

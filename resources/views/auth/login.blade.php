@@ -13,10 +13,11 @@
                     <span >{{ $errors->first('account_name') }}</span>
                 @endif
             </div>
-            
+
             <div class="form-group">
                 <label for="password">パスワード</label><br>
                 <input type="password" name="password" id="password" class="form-control">
+                <p><a href="/password/reset">パスワードを忘れた場合はこちら</a></p>
             </div>
             <input type="submit" value="ログイン" class="btn btn-info" style="width:100%;">
         </form>

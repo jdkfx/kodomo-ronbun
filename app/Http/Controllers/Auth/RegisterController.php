@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'account_name' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:user_details',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'display_name' => 'required|string|max:255',
         ]);
@@ -72,13 +72,13 @@ class RegisterController extends Controller
 
             $user = User::create([
                 'account_name' => $data['account_name'],
+                'email' => $data['email'],
                 'password' => bcrypt($data['password']),
             ]);
 
             $user->user_detail()->create([
                 'user_id' => $user->id,
                 'display_name' => $data['display_name'],
-                'email' => $data['email'],
                 'status' => 99,
                 'profile_text' => 'よろしくお願いします。',
                 'profile_image' => '未設定',
@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
         $user_detail = UserDetail::find($user->id);
         $display_name = $user_detail->display_name;
-        // Mail::to($user_detail->email)->send(new UserRegistered($display_name));
+        Mail::to($user->email)->send(new UserRegistered($display_name));
 
         return $user;
     }
