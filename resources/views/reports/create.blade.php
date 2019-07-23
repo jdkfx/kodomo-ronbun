@@ -68,16 +68,23 @@
         forcePasteAsPlainText: true,
         fillEmptyBlocks: false,
         height: 500,
-        toolbarGroups:[
-            { name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
+        toolbarGroups: [
+            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
             { name: 'styles', groups: [ 'styles' ] },
+            { name: 'links', groups: [ 'links' ] },
             '/',
             { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
             { name: 'insert', groups: [ 'insert' ] },
-            { name: 'links', groups: [ 'links' ] },
+            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+            { name: 'forms', groups: [ 'forms' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+            { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+            { name: 'colors', groups: [ 'colors' ] },
+            { name: 'tools', groups: [ 'tools' ] },
+            { name: 'others', groups: [ 'others' ] },
+            { name: 'about', groups: [ 'about' ] },
         ],
-        removeButtons:'Source,Save,NewPage,Preview,Print,Templates,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Subscript,Superscript,CopyFormatting,RemoveFormat,Strike,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Font,FontSize,Styles,About,Maximize,ShowBlocks,TextColor,BGColor,Flash,SpecialChar,PageBreak,Iframe,Anchor,Image',
+        removeButtons:'About,Maximize,ShowBlocks,BGColor,TextColor,Styles,Font,FontSize,Iframe,PageBreak,Smiley,Flash,Unlink,Anchor,Language,BidiRtl,BidiLtr,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,CreateDiv,Blockquote,Outdent,Indent,RemoveFormat,CopyFormatting,Select,Textarea,TextField,Radio,Checkbox,Form,Button,ImageButton,HiddenField,Scayt,SelectAll,Find,Replace,Cut,Copy,Paste,PasteText,PasteFromWord,Templates,Save,NewPage,Preview,Print,Source,NumberedList,BulletedList',
     });
 </script>
 @endsection

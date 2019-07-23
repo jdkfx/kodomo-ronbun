@@ -131,6 +131,10 @@ ul {
     margin:0;
 }
 
+.reportDetail h1 {
+    font-size:30px;
+}
+
 .card-body .report_abstract {
     margin-top:12px;
 }
@@ -144,6 +148,13 @@ ul {
     margin-bottom:10px;
 }
 
+.contents h1 {
+    font-size:30px;
+}
+
+.contents h2 {
+    font-size:27px;
+}
 
 .profileText .profile_text {
     font-size:18px;

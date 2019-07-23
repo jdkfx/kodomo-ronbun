@@ -5,7 +5,7 @@
             <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="col-lg-7" alt="thumbnailOfReports">
         </div>
         <div class="reportDetail card-body">
-            <h3>{{ $report->title }}</h3>
+            <h1>{{ $report->title }}</h1>
             <p class="report_detail"><a href="/{{ $user->account_name }}">{!! e($user_detail->display_name) !!}</a></p>
             <?php
             $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');

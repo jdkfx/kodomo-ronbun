@@ -34,6 +34,7 @@ class SettingController extends Controller
         $this->validate($request,[
             'account_name' => [
                 'required',
+                'regex:/^[a-zA-Z0-9]+$/',
                 Rule::unique('users')->ignore($user->id),
             ],
             'email' => [
