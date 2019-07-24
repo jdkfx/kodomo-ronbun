@@ -82,7 +82,7 @@ class RegisterController extends Controller
                 'display_name' => $data['display_name'],
                 'status' => 99,
                 'profile_text' => 'よろしくお願いします。',
-                'profile_image' => '未設定',
+                'profile_image' => 'profile_image/IMG_1435.PNG',
             ]);
 
             DB::commit();
