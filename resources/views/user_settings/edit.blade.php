@@ -2,6 +2,15 @@
 @section('content')
     <div class="user_settings mt-4 card">
         <h3 class="text-center mt-4">アカウント設定</h3>
+
+        @if(session('my_status'))
+            <div class="mt-2 card-body">
+                <div class="alert alert-success">
+                    {{ session('my_status') }}
+                </div>
+            </div>
+        @endif
+
         <form action="/setting" class="setting_values card-body" method="post">
             {{ csrf_field() }}
 
@@ -39,7 +48,9 @@
                 <span>{{ $errors->first('passwordNew_confirmation') }}</span>
             </div>
 
-            <input type="submit" value="変更を保存する" class="btn btn-info" style="width:100%;">
+            <div class="user-submit">
+                <input type="submit" value="変更を保存する" class="btn" style="width:100%;">
+            </div>
         </form>
     </div>
 @endsection

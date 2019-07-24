@@ -107,6 +107,11 @@ ul {
     margin:0 auto;
 }
 
+.container .auth form input.btn {
+    background-color:#ff8c00;
+    color:#ffffff;
+}
+
 .reports {
     margin-bottom:20px;
 }
@@ -135,6 +140,11 @@ ul {
     font-size:30px;
 }
 
+.reportDetail button {
+    background-color:transparent;
+    color:#9E9E9E;
+}
+
 .card-body .report_abstract {
     margin-top:12px;
 }
@@ -156,6 +166,11 @@ ul {
     font-size:27px;
 }
 
+.container form .report-submit input.btn {
+    background-color:#ff8c00;
+    color:#ffffff;
+}
+
 .profileText .profile_text {
     font-size:18px;
     color:#000000;
@@ -164,6 +179,11 @@ ul {
 
 .profileText h3 a i::before {
     color:#9E9E9E;
+}
+
+.container form .user-submit input.btn {
+    background-color:#ff8c00;
+    color:#ffffff;
 }
 
 footer {

@@ -10,6 +10,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Input;
 use Hash;
 use App\Rules\ExistsPassword;
+use App\Mail\PasswordChanged;
+use Illuminate\Support\Facades\Mail;
 
 class SettingController extends Controller
 {
@@ -57,10 +59,13 @@ class SettingController extends Controller
             $hashedPassword = $user->password;
             $password = Input::get('password');
             $user->password = Hash::make(Input::get('passwordNew'));
+            $user_detail = UserDetail::find($user->id);
+            $display_name = $user_detail->display_name;
+            Mail::to($user->email)->send(new PasswordChanged($display_name));
         }
         $user->email = $request->email;
         $user->save();
 
-        return redirect('/setting/edit');
+        return redirect('/setting/edit')->with('my_status',__('ユーザー設定が変更されました。'));
     }
 }

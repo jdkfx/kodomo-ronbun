@@ -19,7 +19,7 @@
                 <input type="password" name="password" id="password" class="form-control">
                 <p><a href="/password/reset">パスワードを忘れた場合はこちら</a></p>
             </div>
-            <input type="submit" value="ログイン" class="btn btn-info" style="width:100%;">
+            <input type="submit" value="ログイン" class="btn" style="width:100%;">
         </form>
     </div>
 @endsection

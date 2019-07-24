@@ -48,7 +48,7 @@
             case 11:
                 $status_text = '高校２年生';
                 break;
-            case 11:
+            case 12:
                 $status_text = '高校３年生';
                 break;
             case 0:

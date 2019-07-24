@@ -64,7 +64,9 @@
                 <span>{{ $errors->first('category_id') }}</span>
             </div>
         </div>
-        <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
+        <div class="report-submit">
+            <input type="submit" value="投稿する" class="btn" style="width:100%;">
+        </div>
     </form>
 @endsection
 @section('js')

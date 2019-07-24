@@ -43,7 +43,7 @@
                 <span>{{ $errors->first('agree') }}</span>
             </div>
 
-            <input type="submit" value="登録する" class="btn btn-info" style="width:100%;">
+            <input type="submit" value="登録する" class="btn" style="width:100%;">
         </form>
     </div>
 @endsection

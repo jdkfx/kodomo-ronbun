@@ -48,16 +48,23 @@ class UsersController extends Controller
     public function update(Request $request,$account_name){
         $this->validate($request,[
             'display_name' => 'required',
-            'profile_image' => 'required|image',
             'profile_text' =>'required',
         ]);
+
+        if(isset($request->profile_image)){
+            $this->validate($request,[
+                'profile_image' => 'required|image',
+            ]);
+        }
 
         $user = User::where('account_name',$account_name)->first();
         $user_detail = UserDetail::find($user->id);
 
         $reqProImg = $request->file('profile_image');
-        $path = Storage::disk('s3')->put('/profile_image', $reqProImg, 'public');
-        $user_detail->profile_image = $path;
+        if(isset($reqProImg)){
+            $path = Storage::disk('s3')->put('/profile_image', $reqProImg, 'public');
+            $user_detail->profile_image = $path;
+        }
         $user_detail->display_name = $request->display_name;
         $user_detail->profile_text = $request->profile_text;
         $user_detail->status = $request->status;

@@ -15,7 +15,7 @@
                 @if(\Auth::user()->id === $report->user_id)
                     <div class="dropdown">
                         <button type="button" id="report-dropdown"
-                        class="btn btn-secondary dropdown-toggle"
+                        class="btn dropdown-toggle"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false">

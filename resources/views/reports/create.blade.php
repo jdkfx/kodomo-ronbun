@@ -14,19 +14,19 @@
 
         <div class="form-group">
             <label for="title">タイトル</label>
-            <input type="text" name="title" id="title" class="form-control">
+            <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control">
             <span>{{ $errors->first('title') }}</span>
         </div>
 
         <div class="form-group">
             <label for="contents_abstract">要約</label>
-            <textarea name="contents_abstract" rows="8" cols="80" class="form-control"></textarea>
+            <textarea name="contents_abstract" rows="8" cols="80" class="form-control">{{ old('contents_abstract') }}</textarea>
             <span>{{ $errors->first('contents_abstract') }}</span>
         </div>
 
         <div class="form-group">
             <label for="contents_text">本文</label>
-            <textarea name="contents_text" class="form-control"></textarea>
+            <textarea name="contents_text" class="form-control">{{ old('contents_text') }}</textarea>
             <span>{{ $errors->first('contents_text') }}</span>
         </div>
 
@@ -57,7 +57,9 @@
                 <span>{{ $errors->first('category_id') }}</span>
             </div>
         </div>
-        <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
+        <div class="report-submit">
+            <input type="submit" value="投稿する" class="btn" style="width:100%;">
+        </div>
     </form>
 @endsection
 @section('js')
