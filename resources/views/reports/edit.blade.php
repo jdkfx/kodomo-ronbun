@@ -93,7 +93,7 @@
             { name: 'others', groups: [ 'others' ] },
             { name: 'about', groups: [ 'about' ] },
         ],
-        removeButtons:'About,Maximize,ShowBlocks,BGColor,TextColor,Styles,Font,FontSize,Iframe,PageBreak,Smiley,Flash,Unlink,Anchor,Language,BidiRtl,BidiLtr,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,CreateDiv,Blockquote,Outdent,Indent,RemoveFormat,CopyFormatting,Select,Textarea,TextField,Radio,Checkbox,Form,Button,ImageButton,HiddenField,Scayt,SelectAll,Find,Replace,Cut,Copy,Paste,PasteText,PasteFromWord,Templates,Save,NewPage,Preview,Print,Source,NumberedList,BulletedList',
+        removeButtons:'About,Maximize,ShowBlocks,BGColor,TextColor,Styles,Font,FontSize,Iframe,PageBreak,Smiley,Flash,Unlink,Anchor,Language,BidiRtl,BidiLtr,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,CreateDiv,Blockquote,Outdent,Indent,RemoveFormat,CopyFormatting,Select,Textarea,TextField,Radio,Checkbox,Form,Button,ImageButton,HiddenField,Scayt,SelectAll,Find,Replace,Cut,Copy,Paste,PasteText,PasteFromWord,Templates,Save,NewPage,Preview,Print,Source,NumberedList,BulletedList,Image',
     });
 </script>
 @endsection
