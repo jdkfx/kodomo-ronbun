@@ -21,7 +21,7 @@
                                         <?php
                                         $report_detail = App\ReportDetail::where('report_id',$report->id)->first();
                                          ?>
-                                        <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
+                                        <img src="https://kodomo-ronbun.s3.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
