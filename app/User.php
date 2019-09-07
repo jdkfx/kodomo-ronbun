@@ -32,6 +32,10 @@ class User extends Authenticatable
         return $this->hasOne('App\UserDetail');
     }
 
+    public function report(){
+        return $this->hasMany('App\Report');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PasswordResetNotification($token));

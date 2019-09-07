@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReportsController extends Controller
 {
@@ -32,11 +33,14 @@ class ReportsController extends Controller
         $report_text = new ReportText;
         $report_abstract = new ReportAbstract;
 
+        $categories = config('const.categories');
+        
         return view('reports.create',[
             'report' => $report,
             'report_detail' => $report_detail,
             'report_text' => $report_text,
             'report_abstract' => $report_abstract,
+            'categories' => $categories
         ]);
     }
 
@@ -79,18 +83,14 @@ class ReportsController extends Controller
         return redirect('/reports/'.$report->id);
     }
 
-    public function show($id)
+    public function show(Report $report)
     {
-        $report = Report::find($id);
-        if($report == null){
-            abort(404,'お探しのページは削除されたか、現在アクセスできない状態になっている可能性があります。<br>もしくは、アクセスしているリンクが間違っていないかお確かめください。');
-        }
-        $report_detail = ReportDetail::where('report_id',$report->id)->first();
-        $report_text = ReportText::where('report_id',$report->id)->first();
-        $report_abstract = ReportAbstract::where('report_id',$report->id)->first();
+        $report_detail = $report->report_detail;
+        $report_text = $report->report_text;
+        $report_abstract = $report->report_abstract;
 
-        $user = User::find($report->user_id);
-        $user_detail = UserDetail::find($user->id);
+        $user = $report->user;
+        $user_detail = $user->user_detail;
 
         return view('reports.show',[
             'report' => $report,
@@ -123,7 +123,7 @@ class ReportsController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Report $report)
     {
         $this->validate($request,[
             'title' => 'required',
@@ -132,30 +132,33 @@ class ReportsController extends Controller
             'contents_abstract' => 'required',
         ]);
 
-        $report = Report::find($id);
-        $report_detail = ReportDetail::where('report_id',$report->id)->first();
-        $report_text = ReportText::where('report_id',$report->id)->first();
-        $report_abstract = ReportAbstract::where('report_id',$report->id)->first();
+        $report = DB::transaction(function() use($request,$report) {
+            $report_detail = $report->report_detail;
+            $report_text = $report->report_text;
+            $report_abstract = $report->report_abstract;
 
-        $report->title = $request->title;
-        $report->save();
+            $report->title = $request->title;
+            $report->save();
 
-        $reqThumb = $request->file('thumbnail');
-        if(isset($reqThumb)){
-            $this->validate($request,[
-                'thumbnail' => 'image',
-            ]);
-            $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
-            $report_detail->thumbnail = $path;
-        }
-        $report_detail->category_id = $request->category_id;
-        $report_detail->save();
+            $reqThumb = $request->file('thumbnail');
+            if(isset($reqThumb)){
+                $this->validate($request,[
+                    'thumbnail' => 'image',
+                ]);
+                $path = Storage::disk('s3')->put('/thumbnail', $reqThumb, 'public');
+                $report_detail->thumbnail = $path;
+            }
+            $report_detail->category_id = $request->category_id;
+            $report_detail->save();
 
-        $report_text->contents_text = $request->contents_text;
-        $report_text->save();
+            $report_text->contents_text = $request->contents_text;
+            $report_text->save();
 
-        $report_abstract->contents_abstract = $request->contents_abstract;
-        $report_abstract->save();
+            $report_abstract->contents_abstract = $request->contents_abstract;
+            $report_abstract->save();
+
+            return $report;
+        });
 
         return redirect('/reports/'.$report->id);
     }

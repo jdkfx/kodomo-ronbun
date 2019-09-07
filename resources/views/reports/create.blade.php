@@ -40,19 +40,10 @@
             <div class="form-group  col-lg-6">
                 <label for="category_id">カテゴリー</label>
                 <select name="category_id" id="category_id" class="form-control">
-                    <option value="" style="display: none;">選択してください</option>
-                    <option value="1" @if(old('category_id')=='1') selected @endif>植物（しょくぶつ）</option>
-                    <option value="2" @if(old('category_id')=='2') selected @endif>昆虫（こんちゅう）</option>
-                    <option value="3" @if(old('category_id')=='3') selected @endif>動物（どうぶつ）</option>
-                    <option value="4" @if(old('category_id')=='4') selected @endif>物質（ぶっしつ）</option>
-                    <option value="5" @if(old('category_id')=='5') selected @endif>宇宙（うちゅう）</option>
-                    <option value="6" @if(old('category_id')=='6') selected @endif>音（おと）</option>
-                    <option value="7" @if(old('category_id')=='7') selected @endif>重力（じゅうりょく）</option>
-                    <option value="8" @if(old('category_id')=='8') selected @endif>天気（てんき）</option>
-                    <option value="9" @if(old('category_id')=='9') selected @endif>磁石（じしゃく）</option>
-                    <option value="10" @if(old('category_id')=='10') selected @endif>電気（でんき）</option>
-                    <option value="11" @if(old('category_id')=='11') selected @endif>大地（だいち）</option>
-                    <option value="0" @if(old('category_id')=='0') selected @endif>その他（そのほか）</option>
+                    <option value="" style="display:none;">選択してください</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category['value'] }}">{{ $category['text'] }}</option>
+                    @endforeach
                 </select>
                 <span>{{ $errors->first('category_id') }}</span>
             </div>

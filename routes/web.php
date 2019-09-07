@@ -41,7 +41,7 @@ Route::get('policy', function(){
 Route::group(['middleware' => ['auth']],function(){
     Route::post('reports','ReportsController@store');
     Route::get('reports/create','ReportsController@create');
-    Route::put('reports/{id}','ReportsController@update');
+    Route::put('reports/{report}','ReportsController@update');
     Route::delete('reports/{id}','ReportsController@destroy');
     Route::get('reports/{id}/edit','ReportsController@edit');
 
@@ -55,6 +55,6 @@ Route::group(['middleware' => ['auth']],function(){
     // Route::delete('{account_name}','UsersController@destroy');
 });
 
-Route::get('reports/{id}','ReportsController@show');
+Route::get('reports/{report}','ReportsController@show');
 
 Route::get('{account_name}','UsersController@show');

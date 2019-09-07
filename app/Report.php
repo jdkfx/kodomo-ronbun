@@ -19,4 +19,8 @@ class Report extends Model
     public function report_abstract(){
         return $this->hasOne('App\ReportAbstract');
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
