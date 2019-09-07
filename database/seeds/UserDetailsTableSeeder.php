@@ -17,21 +17,21 @@ class UserDetailsTableSeeder extends Seeder
                 'display_name' => '山田',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
-                'profile_image' => 'profile_image/IMG_1435.PNG',
+                'profile_image' => 'profile_image/default_profile_image.png',
             ],
             [
                 'user_id' => '2',
                 'display_name' => '鈴木',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
-                'profile_image' => 'profile_image/IMG_1435.PNG',
+                'profile_image' => 'profile_image/default_profile_image.png',
             ],
             [
                 'user_id' => '3',
                 'display_name' => '佐藤',
                 'status' => '99',
                 'profile_text' => 'よろしくお願いします。',
-                'profile_image' => 'profile_image/IMG_1435.PNG',
+                'profile_image' => 'profile_image/default_profile_image.png',
             ],
         ]);
     }

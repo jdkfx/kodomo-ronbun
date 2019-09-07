@@ -2,7 +2,7 @@
 @section('content')
 <div class="userProfile mt-4 row">
     <div class="profile_image col-lg-4 col-6 mb-4">
-        <img src="https://kodomo-ronbun.s3.amazonaws.com/{{ $user_detail->profile_image }}" alt="profile_image" class="img-thumbnail">
+        <img src="https://test-kodomo-ronbun.s3.amazonaws.com/{{ $user_detail->profile_image }}" alt="profile_image" class="img-thumbnail">
     </div>
     <div class="profileText col-lg-8 mb-4">
         <h3>{{ $user_detail->display_name }}
@@ -77,7 +77,7 @@
                                     <?php
                                     $report_detail = App\ReportDetail::where('report_id',$report->id)->first();
                                      ?>
-                                    <img src="https://kodomo-ronbun-test.s3-ap-northeast-1.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
+                                    <img src="https://test-kodomo-ronbun.s3.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
                                 </div>
                             </div>
                             <div class="col-lg-8">
