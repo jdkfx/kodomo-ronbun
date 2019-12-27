@@ -17,10 +17,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card-body">
-                                        <?php
-                                        $report_detail = App\ReportDetail::where('report_id',$report->id)->first();
-                                         ?>
-                                        <img src="https://test-kodomo-ronbun.s3.amazonaws.com/{{ $report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
+                                        <img src="https://test-kodomo-ronbun.s3.amazonaws.com/{{ $report->report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
@@ -35,10 +32,7 @@
                                         $date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $report->created_at)->format('Y年m月d日');
                                          ?>
                                         <p class="report_detail">{{ $date }} 投稿</p>
-                                        <?php
-                                        $report_abstract = App\ReportAbstract::where('report_id',$report->id)->first();
-                                         ?>
-                                        <p>{!! nl2br(e($report_abstract->contents_abstract),false) !!}</p>
+                                        <p>{!! nl2br(e($report->report_abstract->contents_abstract),false) !!}</p>
                                     </div>
                                 </div>
                             </div>
