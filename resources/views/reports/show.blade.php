@@ -50,11 +50,11 @@
             <p class="contents-body">{!! $report_text->contents_text !!}</p>
         </div>
 
-        <?php // TODO: コメント機能の追加 ?>
-        <!-- <div class="comments card-body">
+        <div class="comments card-body">
             <h3>コメント</h3>
             <form>
                 <div class="form-group">
+                    {{ csrf_field() }}
                     <input type="text" name="reportsComments" placeholder="コメントを入力" class="form-control mb-2">
                     <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
                 </div>
@@ -64,6 +64,6 @@
                 <li class="list-group-item">userName : コメント</li>
                 <li class="list-group-item">userName : コメント</li>
             </ul>
-        </div> -->
+        </div>
     </div>
 @endsection
