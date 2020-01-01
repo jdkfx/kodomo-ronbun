@@ -12,6 +12,9 @@ class CommentsController extends Controller
 {
     public function store(Request $request)
     {
+        var_dump($request);
+        exit;
+
         $this->validate($request,[
             'message' => 'required|max:191',
         ]);

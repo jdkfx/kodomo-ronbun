@@ -52,10 +52,12 @@
 
         <div class="comments card-body">
             <h3>コメント</h3>
-            <form>
+            <form action="/reports/{{ $report->id }}" method="post">
                 <div class="form-group">
                     {{ csrf_field() }}
-                    <input type="text" name="reportsComments" placeholder="コメントを入力" class="form-control mb-2">
+                    <input type="hidden" name="_method" value="post">
+                    <input type="text" name="message" placeholder="コメントを入力" class="form-control mb-2">
+                    <input type="hidden" name="report_id" value="{{ $report->id }}">
                     <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
                 </div>
             </form>
