@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::post('reports','ReportsController@store');
     Route::get('reports/create','ReportsController@create');
     Route::put('reports/{report}','ReportsController@update');
+    Route::post('reports/{id}','CommentsController@store');
     Route::delete('reports/{id}','ReportsController@destroy');
     Route::get('reports/{id}/edit','ReportsController@edit');
 
