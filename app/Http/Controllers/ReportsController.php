@@ -91,6 +91,7 @@ class ReportsController extends Controller
 
         $user = $report->user;
         $user_detail = $user->user_detail;
+        $comments = $report->comments;
 
         return view('reports.show',[
             'report' => $report,
@@ -99,6 +100,7 @@ class ReportsController extends Controller
             'report_detail' => $report_detail,
             'report_text' => $report_text,
             'report_abstract' => $report_abstract,
+            'comments' => $comments,
         ]);
     }
 

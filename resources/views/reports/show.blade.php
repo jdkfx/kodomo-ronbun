@@ -60,11 +60,13 @@
                     <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
                 </div>
             </form>
-            <ul class="list-group">
-                <li class="list-group-item">userName : コメント</li>
-                <li class="list-group-item">userName : コメント</li>
-                <li class="list-group-item">userName : コメント</li>
-            </ul>
+            @if(count($comments) > 0)
+                <ul class="list-group">
+                    <?php foreach ($comments as $comment): ?>
+                        <li class="list-group-item">userName : {!! nl2br(e($comment->message)) !!}</li>
+                    <?php endforeach; ?>
+                </ul>
+            @endif
         </div>
     </div>
 @endsection
