@@ -12,9 +12,9 @@
         @endif
 
         <form action="/setting" class="setting_values card-body" method="post">
-            {{ csrf_field() }}
+            @csrf
 
-            <input type="hidden" name="_method" value="put">
+            @method('PUT')
 
             <div class="form-group">
                 <label for="account_name">アカウント名</label>

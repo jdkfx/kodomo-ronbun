@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <form action="/reports" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
+        @csrf
 
         <div class="form-group">
             <div id="upload-img">

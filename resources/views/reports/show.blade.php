@@ -24,8 +24,8 @@
                     <div class="dropdown-menu" aria-labelledby="report-dropdown">
                         <a class="dropdown-item" href="/reports/{{ $report->id }}/edit">編集</a>
                         <form action="/reports/{{ $report->id }}" method="post" class="dropdown-item" style="display:block;">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="delete">
+                            @csrf
+                            @method('DELETE')
                             <input type="submit" value="削除"
                             style="
                             background-color:transparent;
@@ -54,7 +54,7 @@
             <h3>コメント</h3>
             <form action="/reports/{{ $report->id }}" method="post">
                 <div class="form-group">
-                    {{ csrf_field() }}
+                    @csrf
                     <input type="text" name="message" placeholder="コメントを入力" class="form-control mb-2">
                     <input type="hidden" name="report_id" value="{{ $report->id }}">
                     <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">

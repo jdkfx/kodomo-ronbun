@@ -4,7 +4,7 @@
         <h3>ログイン</h3>
         <p class="auth-link">新規登録は<a href="/register">こちら</a></p>
         <form method="post" class="col-lg-8">
-            {{ csrf_field() }}
+            @csrf
 
             <div class="form-group{{ $errors->has('account_name') ? ' has-error' : '' }}">
                 <label for="account_name">アカウント名</label><br>

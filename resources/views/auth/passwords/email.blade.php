@@ -3,7 +3,7 @@
     <div class="auth">
         <h3 class="text-center">パスワードリセット</h3>
         <form class="col-lg-8" method="POST" action="{{ route('password.email') }}">
-            {{ csrf_field() }}
+            @csrf
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email">メールアドレス</label>

@@ -4,7 +4,7 @@
         <h3 class="text-center">パスワードリセット</h3>
 
         <form class="col-lg-8" method="POST" action="{{ route('password.request') }}">
-            {{ csrf_field() }}
+            @csrf
 
             <input type="hidden" name="token" value="{{ $token }}">
 

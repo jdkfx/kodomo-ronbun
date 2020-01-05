@@ -4,7 +4,7 @@
         <h3>新規登録</h3>
         <p class="auth-link">ログインは<a href="/login">こちら</a></p>
         <form action="register" method="post" class="col-lg-8">
-            {{ csrf_field() }}
+            @csrf
 
             <div class="form-group">
                 <label for="display_name">名前</label><br>

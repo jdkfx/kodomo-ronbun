@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <form action="/reports/{{ $report->id }}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
+        @csrf
 
-        <input type="hidden" name="_method" value="put">
+        @method('PUT')
 
         <div class="form-group">
             <div id="upload-img">
