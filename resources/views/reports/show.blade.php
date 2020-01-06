@@ -52,18 +52,24 @@
 
         <div class="comments card-body">
             <h3>コメント</h3>
-            <form action="/reports/{{ $report->id }}" method="post">
-                <div class="form-group">
-                    @csrf
-                    <input type="text" name="message" placeholder="コメントを入力" class="form-control mb-2">
-                    <input type="hidden" name="report_id" value="{{ $report->id }}">
-                    <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
-                </div>
-            </form>
+            @if(\Auth::check())
+                <form action="/reports/{{ $report->id }}" method="post">
+                    <div class="form-group">
+                        @csrf
+                        <input type="text" name="message" placeholder="コメントを入力" class="form-control mb-2">
+                        <input type="hidden" name="report_id" value="{{ $report->id }}">
+                        <input type="submit" value="投稿する" class="btn btn-info" style="width:100%;">
+                    </div>
+                </form>
+            @endif
             @if(count($comments) > 0)
                 <ul class="list-group">
                     <?php foreach ($comments as $comment): ?>
-                        <li class="list-group-item">userName : {!! nl2br(e($comment->message)) !!}</li>
+                        <?php
+                        $user = App\User::where('id',$comment->user_id)->first();
+                        $user_detail = App\UserDetail::find($user->id);
+                         ?>
+                        <li class="list-group-item">{{ $user_detail->display_name }} : {!! nl2br(e($comment->message)) !!}</li>
                     <?php endforeach; ?>
                 </ul>
             @endif

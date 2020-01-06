@@ -22,7 +22,7 @@
                     <p><a href="https://twitter.com/jdkfx">お問い合わせ</a></p>
                     <p><a href="/terms">利用規約</a></p>
                     <p><a href="/policy">プライバシーポリシー</a></p>
-                    <p>&copy; 2019 Haruki Tazoe</p>
+                    <p>&copy; 2019 - 2020 Haruki Tazoe</p>
                 </div>
             </div>
         </footer>
