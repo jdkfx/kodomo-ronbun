@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Comment;
+use App\Report;
 
 class CommentsController extends Controller
 {
@@ -20,6 +21,13 @@ class CommentsController extends Controller
             'report_id' => $request->report_id,
             'message' => $request->message,
         ]);
+
+        // ろんぶんを投稿した人物以外のユーザーがコメントしたらvar_dump()
+        $report = Report::where('id', $request->report_id)->first();
+        if(\Auth::id() != $report->user->id){
+            var_dump($request);
+            exit;
+        }
 
         return redirect()->back();
     }
