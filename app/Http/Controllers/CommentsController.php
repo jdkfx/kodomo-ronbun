@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Comment;
 use App\Report;
+use App\Mail\ReceivingComment;
+use Illuminate\Support\Facades\Mail;
 
 class CommentsController extends Controller
 {
@@ -22,11 +24,10 @@ class CommentsController extends Controller
             'message' => $request->message,
         ]);
 
-        // ろんぶんを投稿した人物以外のユーザーがコメントしたらvar_dump()
+        // ろんぶんを投稿した人物以外のユーザーがコメントしたらメール送信
         $report = Report::where('id', $request->report_id)->first();
         if(\Auth::id() != $report->user->id){
-            var_dump($request);
-            exit;
+            Mail::to($report->user->email)->send(new ReceivingComment($report->user->user_detail->display_name));
         }
 
         return redirect()->back();

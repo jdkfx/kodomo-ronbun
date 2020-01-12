@@ -6,20 +6,24 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\User;
+use App\UserDetail;
 
 class ReceivingComment extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $display_name;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+     public function __construct($display_name)
+     {
+         $this->display_name = $display_name;
+     }
 
     /**
      * Build the message.
@@ -28,6 +32,11 @@ class ReceivingComment extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.users.receivingcomment')
+            ->text('emails.users.receivingcomment')
+            ->subject('コメント通知')
+            ->with([
+                'display_name' => $this->display_name,
+            ]);
     }
 }
