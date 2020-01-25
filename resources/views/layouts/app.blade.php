@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>こどもろんぶん</title>
+        <meta name="description" content="「こどもろんぶん」は、こどものための自由研究のろんぶん投稿サービスです。あなたの自由研究をのせてみませんか？「こどもろんぶん」ではたくさんの方からのろんぶんに対するフィードバックがもらえるかもしれません。もしかするとあなたの研究は新時代をきりひらく素晴らしいものかもしれません。">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
