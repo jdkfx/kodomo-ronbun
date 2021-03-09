@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card-body">
-                                        <img src="https://test-kodomo-ronbun.s3.amazonaws.com/{{ $report->report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
+                                        <img src="https://kodomo-ronbun.s3.amazonaws.com/{{ $report->report_detail->thumbnail }}" class="img-thumbnail" alt="thumbnailOfReports">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
